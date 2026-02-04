@@ -20,3 +20,11 @@ This project analyzes historical stock market data, computes technical indicator
 - notebooks → analysis notebooks
 - outputs → charts & exports
 - src → project code
+
+## Key Features
+
+- Time-series stock data processing
+- Technical indicator engineering (moving averages, volatility)
+- Multi-stock comparative analysis
+- Interactive dashboard visualizations
+- SQL-based analytical queries
