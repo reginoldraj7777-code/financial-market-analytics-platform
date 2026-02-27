@@ -70,7 +70,7 @@ requirements.txt → Python dependencies
 
 1. Clone the repository
 
-git clone https://github.com/<your-username>/financial-market-analytics-platform
+git clone https://github.com/reginoldraj7777-code/financial-market-analytics-platform.git
 
 2. Install dependencies
 
