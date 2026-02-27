@@ -86,3 +86,5 @@ pip install -r requirements.txt
 ## Project Outcome
 
 This project delivers an end-to-end financial analytics platform that converts raw time-series stock data into decision-ready dashboards using SQL analytics and BI visualization tools.
+
+End-to-end time-series analytics platform using Python, MySQL, and Apache Superset.
