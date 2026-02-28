@@ -88,3 +88,11 @@ pip install -r requirements.txt
 This project delivers an end-to-end financial analytics platform that converts raw time-series stock data into decision-ready dashboards using SQL analytics and BI visualization tools.
 
 End-to-end time-series analytics platform using Python, MySQL, and Apache Superset.
+
+## Sample Output Visualizations
+
+### Moving Average Trend
+![Moving Average](screenshots/price_moving_avg.png)
+
+### Rolling Volatility
+![Volatility](screenshots/volatility.png)
