@@ -103,3 +103,16 @@ financial-market-analytics-platform/
 │   └── pipeline_run_log.json
 └── tests/
     └── test_pipeline_basic.py
+
+---
+
+## Makefile Commands
+
+Common development commands:
+
+```bash
+make install      # install dependencies
+make pipeline     # run the analytics pipeline
+make dashboard    # start the Streamlit dashboard
+make syntax       # check Python syntax
+make clean        # remove local cache files
