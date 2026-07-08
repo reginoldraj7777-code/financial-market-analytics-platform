@@ -1,4 +1,6 @@
 # Financial Market Analytics Platform
+![Python CI](https://github.com/reginoldraj7777-code/financial-market-analytics-platform/actions/workflows/ci.yml/badge.svg)
+
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
