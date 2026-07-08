@@ -52,6 +52,23 @@ The goal is to convert raw time-series market data into clear, decision-ready in
 - SQL and report section
 - Generic synthetic telemetry extension for demonstrating transferability of the pipeline structure
 
+
+---
+
+## Dashboard Preview
+
+### Executive Overview
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+### Time-Series Trend and Risk Analysis
+![Trend and Risk](screenshots/trend_risk.png)
+
+### Event and Pattern Detection
+![Pattern Detection](screenshots/pattern_detection.png)
+
+### SQL-Ready Outputs and Automated Reports
+![SQL and Reports](screenshots/sql_report.png)
+
 ---
 
 ## Project Structure
