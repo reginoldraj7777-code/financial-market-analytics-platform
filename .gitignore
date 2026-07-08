@@ -1,10 +1,27 @@
-.venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.local
+
+# OS / editor files
 .DS_Store
-outputs/*.db
-outputs/*.csv
-outputs/*.html
-outputs/*.json
-outputs/*.md
-!outputs/README.md
+.vscode/
+.idea/
+
+# Streamlit local config
+.streamlit/secrets.toml
+
+# Temporary files
+*.log
+*.tmp
