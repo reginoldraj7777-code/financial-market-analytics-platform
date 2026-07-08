@@ -1,29 +1,10 @@
 # Notebooks
 
-This directory contains Jupyter notebooks used during the development of the Financial Market Analytics Platform.
+The project is implemented mainly as Python scripts because the goal is to keep the pipeline reproducible and maintainable.
 
-## Purpose
+Use notebooks only for optional exploration. The production-style workflow is:
 
-These notebooks were used for:
-
-- Exploratory Data Analysis (EDA)
-- Data cleaning and preprocessing
-- Technical indicator feature engineering
-- Time-series feature creation
-- SQL result validation
-- Chart prototyping before dashboard integration
-- Metric verification and sanity checks
-
-## Typical Workflow
-
-1. Load raw stock datasets
-2. Perform exploratory analysis and summary statistics
-3. Engineer indicators (moving averages, beta, volatility)
-4. Validate computed metrics against SQL outputs
-5. Prototype visualizations
-6. Finalize features for dashboard layer
-
-## Note
-
-Notebooks are used for experimentation and validation.  
-Production-ready logic is implemented in the `src/` scripts.
+```bash
+python src/main.py
+streamlit run app.py
+```

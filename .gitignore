@@ -1,4 +1,10 @@
-venv/
+.venv/
 __pycache__/
 *.pyc
-outputs/
+.DS_Store
+outputs/*.db
+outputs/*.csv
+outputs/*.html
+outputs/*.json
+outputs/*.md
+!outputs/README.md

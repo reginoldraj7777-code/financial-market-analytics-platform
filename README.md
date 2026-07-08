@@ -1,98 +1,78 @@
 # Financial Market Analytics Platform
 
-Interactive time-series stock market analytics dashboard built using Python, MySQL, and Apache Superset for multi-stock trend and risk analysis.
+An end-to-end time-series analytics platform built with Python, SQL-ready exports, automated reporting, and an interactive Streamlit dashboard.
 
----
+The project converts raw multi-entity market data into validated datasets, engineered indicators, explainable event flags, SQLite tables, reusable SQL queries, and dashboard insights.
 
-## Overview
+## What this project solves
 
-This project analyzes historical stock market data, computes technical indicators, and delivers interactive dashboards for comparative performance and volatility analysis across multiple stocks.
+Raw time-series data is difficult to interpret directly. Analysts need a fast way to identify trend direction, volatility, abnormal movement, high-volume events, and risk changes across multiple entities. This project automates that workflow from data ingestion to visual reporting.
 
-The platform combines SQL-based analytics with BI dashboard visualization to support exploratory financial analysis and decision insights.
+## Key features
 
----
+- Multi-symbol time-series ingestion with offline fallback data
+- Data validation and quality reporting
+- Feature engineering: daily returns, moving averages, rolling volatility, drawdown, and risk score
+- Explainable event detection for abnormal returns, volatility spikes, and high-volume events
+- SQL-ready storage using SQLite
+- Reusable SQL analysis queries
+- Automated Markdown summary report
+- Streamlit dashboard for overview, trend/risk analysis, event detection, SQL reports, and pipeline monitoring
+- Synthetic system-telemetry extension to show that the same pipeline design can handle other timestamped operational signals
 
-## Key Features
+## Project structure
 
-- Time-series stock price analysis
-- Technical indicator engineering (moving averages, volatility metrics)
-- Multi-stock comparative performance tracking
-- SQL-based analytical queries
-- Interactive dashboards with filters and drill-down views
-- Multi-chart visualization (line, candlestick, bar, scatter)
+```text
+financial-market-analytics-platform/
+├── app.py                         # Streamlit dashboard layer
+├── src/main.py                    # Data pipeline: ingestion, validation, features, events, SQL, reports
+├── requirements.txt               # Python dependencies
+├── docs/architecture.md           # Architecture notes
+├── notebooks/README.md            # Notebook guidance
+├── outputs/README.md              # Generated output description
+├── screenshots/                   # Visual examples
+└── tests/                         # Basic pipeline tests
+```
 
----
+## How to run locally
 
-## Tech Stack
-
-- Python
-- Pandas
-- NumPy
-- MySQL
-- SQL Analytics Queries
-- Apache Superset
-- Time-Series Financial Data Processing
-- Dashboard Visualization
-
----
-
-## Project Structure
-
-data/ → Raw and processed stock datasets
-notebooks/ → Analysis and feature engineering notebooks
-src/ → Core data processing and query scripts
-outputs/ → Generated charts and exports
-requirements.txt → Python dependencies
----
-
-## Data Processing Pipeline
-
-1. Historical stock price data collected and cleaned
-2. MySQL tables created for structured storage
-3. Technical indicators computed (moving averages, volatility metrics)
-4. SQL analytical queries built for derived metrics
-5. Apache Superset connected to database
-6. Interactive dashboards created with filters and drill-down analysis
-
----
-
-## Example Analytics Supported
-
-- Moving average trend signals
-- Volatility comparison across multiple stocks
-- Time-window performance tracking
-- Cross-stock KPI comparison
-- Multi-chart visual exploration
-
----
-
-## How to Run
-
-1. Clone the repository
-
-git clone https://github.com/reginoldraj7777-code/financial-market-analytics-platform.git
-
-2. Install dependencies
-
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+python src/main.py
+streamlit run app.py
+```
 
-3. Load datasets into MySQL tables
-4. Run preprocessing scripts from src/
-5. Connect Apache Superset to MySQL
-6. Build dashboards using provided queries
+Then open the local Streamlit URL in your browser, usually:
 
----
+```text
+http://localhost:8501
+```
 
-## Project Outcome
+## Generated outputs
 
-This project delivers an end-to-end financial analytics platform that converts raw time-series stock data into decision-ready dashboards using SQL analytics and BI visualization tools.
+After running the pipeline, the `outputs/` folder contains:
 
-End-to-end time-series analytics platform using Python, MySQL, and Apache Superset.
+- `processed_stock_metrics.csv`
+- `processed_data.csv`
+- `simulated_system_telemetry.csv`
+- `event_stream_log.csv`
+- `analytics_pipeline.db`
+- `automated_summary_report.md`
+- `data_quality_report.md`
+- `sql_analysis_queries.sql`
+- `pipeline_run_log.json`
 
-## Sample Output Visualizations
+## Technical design
 
-### Moving Average Trend
-![Moving Average](screenshots/price_moving_avg.png)
+The project separates the pipeline from the dashboard:
 
-### Rolling Volatility
-![Volatility](screenshots/volatility.png)
+- `src/main.py` prepares the data and generates reusable outputs.
+- `app.py` reads those outputs and visualizes them.
+
+This keeps the analytics logic reproducible and makes the dashboard easier to maintain.
+
+## Tech stack
+
+Python, pandas, NumPy, yfinance, SQLite, SQL, Plotly, Streamlit
