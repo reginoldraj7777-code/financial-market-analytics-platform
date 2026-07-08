@@ -1,5 +1,11 @@
 # Financial Market Analytics Platform
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-purple)
+![SQLite](https://img.shields.io/badge/SQLite-Analytics%20DB-lightgrey)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
+
 End-to-end time-series analytics platform for financial market data.  
 The project processes raw stock data, performs feature engineering, detects important market events, exports SQL-ready analytics outputs, and presents insights through an interactive Streamlit dashboard.
 
