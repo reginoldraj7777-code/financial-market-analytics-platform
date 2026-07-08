@@ -103,6 +103,7 @@ financial-market-analytics-platform/
 │   └── pipeline_run_log.json
 └── tests/
     └── test_pipeline_basic.py
+```
 
 ---
 
@@ -116,3 +117,39 @@ make pipeline     # run the analytics pipeline
 make dashboard    # start the Streamlit dashboard
 make syntax       # check Python syntax
 make clean        # remove local cache files
+```
+
+---
+
+## Outputs Generated
+
+Running the pipeline creates analytical outputs inside the `outputs/` folder:
+
+- `processed_stock_metrics.csv`
+- `processed_data.csv`
+- `simulated_system_telemetry.csv`
+- `event_stream_log.csv`
+- `analytics_pipeline.db`
+- `sql_analysis_queries.sql`
+- `automated_summary_report.md`
+- `data_quality_report.md`
+- `pipeline_run_log.json`
+
+---
+
+## Tech Stack
+
+- Python
+- Pandas
+- NumPy
+- Streamlit
+- Plotly
+- SQLite
+- yfinance
+
+---
+
+## Note
+
+This project is for educational and portfolio purposes.  
+It is not intended as financial advice or a production trading system.
