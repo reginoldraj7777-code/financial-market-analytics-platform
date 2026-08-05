@@ -1,0 +1,16 @@
+---
+description: Guardrails for analytics, Snowflake SQL, and stakeholder-facing changes
+alwaysApply: true
+---
+
+# Project operating rules
+
+- Treat all GTM data in this repository as synthetic demonstration data. Never imply access to Red Hat, customer, or confidential data.
+- Never add secrets, passwords, tokens, account identifiers, or connection strings to source code, prompts, logs, screenshots, or documentation.
+- Prefer the smallest reviewable change. Do not rewrite unrelated code.
+- For Python changes, preserve deterministic outputs and add or update tests.
+- For analytical calculations, state assumptions and verify results against source data.
+- For Snowflake SQL, use readable CTEs, explicit column names, safe identifiers, and read-only queries by default.
+- Do not execute destructive SQL or upload data unless the human owner explicitly confirms the target and action.
+- Separate observed facts, interpretations, risks, and recommended actions in stakeholder summaries.
+- AI suggestions are proposals. The human owner reviews diffs, runs tests, inspects outputs, and owns the final decision.

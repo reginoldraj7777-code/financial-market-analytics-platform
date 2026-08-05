@@ -8,16 +8,16 @@
   "rows": 3128,
   "symbols": 4,
   "nulls_in_core_columns": {
-    "Symbol": 0,
-    "Daily_Return": 4,
-    "Volatility_20": 20,
-    "Open": 0,
-    "Low": 0,
-    "Volume": 0,
     "Risk_Score": 0,
+    "Volume": 0,
+    "Volatility_20": 20,
+    "Symbol": 0,
+    "Open": 0,
+    "Date": 0,
+    "Low": 0,
     "High": 0,
-    "Close": 0,
-    "Date": 0
+    "Daily_Return": 4,
+    "Close": 0
   }
 }
 ```

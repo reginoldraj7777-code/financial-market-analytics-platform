@@ -1,0 +1,3 @@
+# Optional live Snowflake integration for the GTM demo tab.
+# The core dashboard remains fully runnable without Snowflake credentials.
+snowflake-connector-python[pandas]>=3.12

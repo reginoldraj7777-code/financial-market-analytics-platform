@@ -11,6 +11,8 @@ from typing import Iterable
 import numpy as np
 import pandas as pd
 
+from gtm_demo import save_synthetic_gtm_data
+
 try:
     import yfinance as yf
 except Exception:  # keeps the project runnable without internet/dependency issues
@@ -45,6 +47,7 @@ class PipelineConfig:
     return_z_threshold: float = 2.5
     volatility_quantile: float = 0.90
     volume_quantile: float = 0.90
+    force_offline: bool = False
 
 
 def flatten_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -62,6 +65,8 @@ def offline_stock_data(symbol: str, start_date: str, end_date: str) -> pd.DataFr
 
     # Controlled abnormal windows to make event detection visible and explainable.
     for start in [120, 310, 560]:
+        if start >= len(returns):
+            continue
         end = min(start + 24, len(returns))
         returns[start:end] += rng.normal(0, 0.040, end - start)
 
@@ -88,6 +93,8 @@ def load_raw_stock(symbol: str, config: PipelineConfig) -> pd.DataFrame:
     """Load market time-series data; use offline fallback when internet/API fails."""
     print(f"Loading {symbol}...")
     try:
+        if config.force_offline:
+            raise RuntimeError("deterministic offline mode requested")
         if yf is None:
             raise RuntimeError("yfinance unavailable")
         df = yf.download(
@@ -141,7 +148,7 @@ def engineer_features(df: pd.DataFrame, config: PipelineConfig) -> pd.DataFrame:
     df["Volatility_Spike"] = df["Volatility_20"] >= vol_threshold
     df["High_Volume_Event"] = df["Volume"] >= volume_threshold
 
-    # Clear 0-100 risk score: 50% volatility rank, 30% drawdown severity, 20% anomaly intensity.
+    # Clear 0-100 attention score: 50% volatility rank, 30% drawdown severity, 20% anomaly intensity.
     vol_rank = df["Volatility_20"].rank(pct=True).fillna(0)
     drawdown_rank = (-df["Drawdown"]).rank(pct=True).fillna(0)
     anomaly_rank = df["Return_ZScore"].abs().rank(pct=True).fillna(0)
@@ -281,12 +288,13 @@ def simulate_event_stream(stock_df: pd.DataFrame, batch_size: int = 250) -> pd.D
     return pd.DataFrame(batches)
 
 
-def save_sqlite(stock_df: pd.DataFrame, telemetry_df: pd.DataFrame, stream_df: pd.DataFrame) -> None:
+def save_sqlite(stock_df: pd.DataFrame, telemetry_df: pd.DataFrame, stream_df: pd.DataFrame, gtm_df: pd.DataFrame) -> None:
     db_path = OUTPUT_DIR / "analytics_pipeline.db"
     with sqlite3.connect(db_path) as conn:
         stock_df.to_sql("stock_metrics", conn, if_exists="replace", index=False)
         telemetry_df.to_sql("telemetry_metrics_simulated", conn, if_exists="replace", index=False)
         stream_df.to_sql("pipeline_batch_log", conn, if_exists="replace", index=False)
+        gtm_df.to_sql("gtm_metrics_synthetic", conn, if_exists="replace", index=False)
 
         summary = pd.DataFrame(
             {
@@ -299,6 +307,8 @@ def save_sqlite(stock_df: pd.DataFrame, telemetry_df: pd.DataFrame, stream_df: p
                     "stream_batches",
                     "simulated_telemetry_rows",
                     "simulated_telemetry_anomalies",
+                    "synthetic_gtm_rows",
+                    "synthetic_gtm_review_items",
                 ],
                 "value": [
                     len(stock_df),
@@ -309,6 +319,8 @@ def save_sqlite(stock_df: pd.DataFrame, telemetry_df: pd.DataFrame, stream_df: p
                     len(stream_df),
                     len(telemetry_df),
                     int(telemetry_df["Telemetry_Anomaly"].sum()),
+                    len(gtm_df),
+                    int(gtm_df["Requires_Review"].sum()),
                 ],
             }
         )
@@ -364,7 +376,7 @@ ORDER BY Batch_Number;
     (OUTPUT_DIR / "sql_analysis_queries.sql").write_text(sql, encoding="utf-8")
 
 
-def save_reports(stock_df: pd.DataFrame, telemetry_df: pd.DataFrame, stream_df: pd.DataFrame, dq: dict[str, object]) -> None:
+def save_reports(stock_df: pd.DataFrame, telemetry_df: pd.DataFrame, stream_df: pd.DataFrame, gtm_df: pd.DataFrame, dq: dict[str, object]) -> None:
     latest = stock_df.sort_values("Date").groupby("Symbol").tail(1)
     top_risk = latest.sort_values("Risk_Score", ascending=False).iloc[0]
     event_summary = stock_df.groupby("Symbol")[["Return_Anomaly", "Volatility_Spike", "High_Volume_Event"]].sum()
@@ -387,7 +399,7 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}
 - Symbol: {top_risk['Symbol']}
 - Latest date: {pd.to_datetime(top_risk['Date']).date()}
 - Latest close: {top_risk['Close']:.2f}
-- Risk score: {top_risk['Risk_Score']:.1f}/100
+- Attention score: {top_risk['Risk_Score']:.1f}/100
 - Trend signal: {top_risk['Trend_Signal']} / {top_risk['Long_Term_Trend']}
 
 ## Event Summary by Symbol
@@ -402,7 +414,7 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
 ## Extension Note
 
-The financial dataset is used because it is public and time-series based. The same pipeline pattern can be reusered to internal engineering telemetry: entity IDs, timestamps, signal values, anomaly rules, SQL-ready outputs, automated summaries, and dashboards.
+The financial dataset is public and time-series based. The same governed pipeline pattern is demonstrated again with synthetic operational telemetry and synthetic EMEA GTM metrics: entities, timestamps, KPIs, explainable review flags, SQL-ready outputs, stakeholder summaries, and dashboards.
 """
     (OUTPUT_DIR / "automated_summary_report.md").write_text(report, encoding="utf-8")
 
@@ -413,8 +425,11 @@ The financial dataset is used because it is public and time-series based. The sa
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "stock_rows": int(len(stock_df)),
         "symbols": sorted(stock_df["Symbol"].unique().tolist()),
+        "data_sources": sorted(stock_df["Data_Source"].dropna().unique().tolist()),
         "telemetry_rows_simulated": int(len(telemetry_df)),
         "stream_batches": int(len(stream_df)),
+        "synthetic_gtm_rows": int(len(gtm_df)),
+        "synthetic_gtm_review_items": int(gtm_df["Requires_Review"].sum()),
         "outputs": [
             "processed_stock_metrics.csv",
             "simulated_system_telemetry.csv",
@@ -423,6 +438,7 @@ The financial dataset is used because it is public and time-series based. The sa
             "automated_summary_report.md",
             "data_quality_report.md",
             "sql_analysis_queries.sql",
+            "synthetic_gtm_metrics.csv",
         ],
     }
     (OUTPUT_DIR / "pipeline_run_log.json").write_text(json.dumps(run_log, indent=2), encoding="utf-8")
@@ -441,19 +457,21 @@ def run_pipeline(config: PipelineConfig) -> None:
 
     telemetry_df = create_system_telemetry_data()
     stream_df = simulate_event_stream(stock_df)
+    gtm_df = save_synthetic_gtm_data(OUTPUT_DIR / "synthetic_gtm_metrics.csv")
 
     stock_df.to_csv(OUTPUT_DIR / "processed_stock_metrics.csv", index=False)
     # Compatibility alias for older app versions.
     stock_df.to_csv(OUTPUT_DIR / "processed_data.csv", index=False)
     telemetry_df.to_csv(OUTPUT_DIR / "simulated_system_telemetry.csv", index=False)
     stream_df.to_csv(OUTPUT_DIR / "event_stream_log.csv", index=False)
-    save_sqlite(stock_df, telemetry_df, stream_df)
+    save_sqlite(stock_df, telemetry_df, stream_df, gtm_df)
     save_sql_examples()
-    save_reports(stock_df, telemetry_df, stream_df, dq)
+    save_reports(stock_df, telemetry_df, stream_df, gtm_df, dq)
 
     print("Pipeline finished successfully.")
     print(f"Stock rows: {len(stock_df):,}")
     print(f"Telemetry rows simulated: {len(telemetry_df):,}")
+    print(f"Synthetic GTM rows: {len(gtm_df):,}")
     print(f"Outputs written to: {OUTPUT_DIR}")
 
 
@@ -462,9 +480,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--symbols", nargs="*", default=SYMBOLS, help="Symbols to process")
     parser.add_argument("--start", default=START_DATE, help="Start date YYYY-MM-DD")
     parser.add_argument("--end", default=END_DATE, help="End date YYYY-MM-DD")
+    parser.add_argument("--offline", action="store_true", help="Use deterministic offline data for a stable demo")
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
-    run_pipeline(PipelineConfig(symbols=args.symbols, start_date=args.start, end_date=args.end))
+    run_pipeline(PipelineConfig(symbols=args.symbols, start_date=args.start, end_date=args.end, force_offline=args.offline))

@@ -1,0 +1,270 @@
+{
+  "project": "Time-Series Analytics Platform",
+  "documentation_date": "2026-08-01",
+  "evidence_scope": "AI-assisted development tasks documented from actual debugging, enhancement, and business-mapping work on this project.",
+  "principle": "AI proposes; the human owner reviews, tests, and owns the final decision.",
+  "records": [
+    {
+      "id": "AI-001",
+      "title": "Dependency failure diagnosis and durable fix",
+      "date": "2026-08-01",
+      "tool": "ChatGPT",
+      "status": "Verified",
+      "problem": "The pipeline completed its analytics steps but failed while generating a Markdown report because pandas.DataFrame.to_markdown() requires the optional tabulate package.",
+      "prompt_excerpt": "The pipeline fails with ModuleNotFoundError: No module named 'tabulate'. Diagnose the root cause and provide a durable fix, not only a one-time workaround.",
+      "ai_contribution": [
+        "Traced the error to pandas.DataFrame.to_markdown().",
+        "Recommended installing tabulate and adding it to requirements.txt.",
+        "Recommended rerunning the entire pipeline rather than checking only the failing line."
+      ],
+      "human_decisions": [
+        "Confirmed the traceback location before applying the recommendation.",
+        "Added tabulate as an explicit project dependency.",
+        "Kept report generation unchanged because the issue was dependency management, not business logic."
+      ],
+      "verification": [
+        "Installed the dependency in the project virtual environment.",
+        "Reran the complete pipeline successfully.",
+        "Opened the Streamlit dashboard and confirmed that reports and tabs loaded."
+      ],
+      "impact": "Restored the full reporting workflow and made future installations reproducible.",
+      "artifacts": [
+        "requirements.txt",
+        "RUN_DASHBOARD_WINDOWS.bat",
+        "outputs/automated_summary_report.md"
+      ],
+      "code_before": "yfinance>=0.2.40",
+      "code_after": "yfinance>=0.2.40\ntabulate>=0.9.0"
+    },
+    {
+      "id": "AI-002",
+      "title": "Auditable AI-development evidence and enablement design",
+      "date": "2026-08-01",
+      "tool": "ChatGPT",
+      "status": "Verified",
+      "problem": "The project demonstrated analytics skills, but the use of AI during development was not visible, auditable, or reusable by another team member.",
+      "prompt_excerpt": "Show evidence of AI-assisted development in the project in the most impressive but truthful way.",
+      "ai_contribution": [
+        "Proposed a dedicated dashboard tab for transparent AI-use evidence.",
+        "Structured each record around problem, prompt, AI contribution, human decision, verification, and impact.",
+        "Created reusable prompt templates and a lightweight AI-adoption playbook."
+      ],
+      "human_decisions": [
+        "Kept the evidence local and deterministic so the demo does not depend on an external AI API.",
+        "Excluded unsupported claims, confidential data, credentials, and invented time-savings.",
+        "Required human verification and artifact references for every documented AI contribution."
+      ],
+      "verification": [
+        "Validated the JSON evidence schema.",
+        "Added automated tests for the evidence assets.",
+        "Compiled the dashboard code and reran the full test suite."
+      ],
+      "impact": "Makes AI usage transparent, interview-ready, and reusable for team onboarding and upskilling.",
+      "artifacts": [
+        "app.py",
+        "docs/ai_assistance_log.json",
+        "docs/AI_ASSISTED_DEVELOPMENT_EVIDENCE.md",
+        "docs/AI_ADOPTION_PLAYBOOK.md",
+        "tests/test_ai_evidence.py"
+      ]
+    },
+    {
+      "id": "AI-003",
+      "title": "GTM transferability mapping",
+      "date": "2026-08-01",
+      "tool": "ChatGPT",
+      "status": "Verified",
+      "problem": "The demonstration dataset is financial, so the business relevance to Sales Operations and GTM decision support needed to be explained without pretending to use company data.",
+      "prompt_excerpt": "Map this reusable time-series pipeline to GTM Operations while clearly separating the demonstration data from a real company dataset.",
+      "ai_contribution": [
+        "Mapped stock symbols to regions, accounts, products, or sales teams.",
+        "Mapped returns and volatility to KPI movement, variability, and unusual changes.",
+        "Suggested a stakeholder-focused narrative around regional monitoring, anomaly detection, and repeatable SQL reporting."
+      ],
+      "human_decisions": [
+        "Marked the mapping as conceptual and did not imply access to Red Hat or customer data.",
+        "Kept the analytical architecture reusable while preserving the financial demonstration dataset.",
+        "Selected examples that align with Business Analyst and GTM Operations responsibilities."
+      ],
+      "verification": [
+        "Reviewed each mapping for analytical equivalence.",
+        "Added a clear transferability statement to the Executive Overview.",
+        "Added a GTM adoption blueprint to the AI evidence tab."
+      ],
+      "impact": "Connects the technical workflow to regional business decisions, stakeholder reporting, and operational efficiency.",
+      "artifacts": [
+        "app.py",
+        "docs/AI_ADOPTION_PLAYBOOK.md"
+      ]
+    },
+    {
+      "id": "AI-004",
+      "title": "Cursor project rules and repository-aware review workflow",
+      "date": "2026-08-01",
+      "tool": "Cursor",
+      "status": "Verified",
+      "problem": "Repository-aware AI assistance can accelerate Python and SQL work, but team adoption needs persistent guardrails for privacy, analytical correctness, Snowflake safety, testing, and scope control.",
+      "prompt_excerpt": "Review @src/gtm_demo.py, @src/snowflake_adapter.py, and @sql/snowflake_gtm_analysis.sql. Explain the data flow, propose the smallest low-risk improvement, and provide verification steps. Follow @Cursor Rules and do not change files until the plan is approved.",
+      "ai_contribution": [
+        "Uses explicit repository file context instead of isolated copy-pasted snippets.",
+        "Applies version-controlled Cursor project rules to every relevant Agent or Inline Edit request.",
+        "Creates a repeatable plan-review-diff-test-document workflow for analyst enablement."
+      ],
+      "human_decisions": [
+        "Restricted all GTM examples to synthetic data and prohibited claims of company-data access.",
+        "Required plan approval before edits and line-by-line diff review afterward.",
+        "Kept execution, credential use, destructive SQL, and final analytical decisions under human control."
+      ],
+      "verification": [
+        "Added .cursor/rules/analytics-quality.mdc as a version-controlled project rule.",
+        "Added AGENTS.md and docs/CURSOR_WORKFLOW.md with completion checks and a safe demo prompt.",
+        "Added tests that verify the rule exists and contains privacy, Snowflake, and testing guardrails."
+      ],
+      "impact": "Demonstrates how Cursor can be adopted as a governed team capability rather than an unstructured individual coding shortcut.",
+      "artifacts": [
+        ".cursor/rules/analytics-quality.mdc",
+        "AGENTS.md",
+        "docs/CURSOR_WORKFLOW.md",
+        "app.py",
+        "tests/test_redhat_edge.py",
+        "docs/CURSOR_LIVE_DEMO.md"
+      ]
+    },
+    {
+      "id": "AI-005",
+      "title": "Snowflake-ready GTM analytics and safe live-connection adapter",
+      "date": "2026-08-01",
+      "tool": "Snowflake Python Connector + ChatGPT",
+      "status": "Verified",
+      "problem": "The project needed to demonstrate cloud data-warehouse knowledge and direct GTM relevance without depending on company credentials or pretending to use real sales data.",
+      "prompt_excerpt": "Add a Snowflake-ready integration and a synthetic GTM decision-support demo. Keep the default demo fully local, never store credentials, require explicit confirmation before writes, and clearly separate live readiness from a verified live connection.",
+      "ai_contribution": [
+        "Structured an optional Snowflake adapter using environment-based configuration and safe readiness checks.",
+        "Proposed Snowflake-native SQL examples using CTEs, window functions, QUALIFY, COUNT_IF, and DIV0.",
+        "Mapped a deterministic synthetic GTM dataset to regional pipeline, bookings, win rate, activity, and explainable review events."
+      ],
+      "human_decisions": [
+        "Kept Snowflake optional so the interview demo remains stable without external services.",
+        "Disabled live actions unless the connector, required fields, authentication, and explicit upload confirmation are present.",
+        "Used only synthetic demonstration data and displayed no secrets or account identifiers."
+      ],
+      "verification": [
+        "Generated and validated deterministic synthetic GTM output.",
+        "Compiled the Snowflake adapter without requiring credentials.",
+        "Tested identifier validation, read-only query restrictions, SQL assets, and no-secret readiness output.",
+        "Ran the full pipeline, test suite, and Streamlit application test."
+      ],
+      "impact": "Connects the portfolio project directly to GTM Operations and demonstrates a production-aware path from Python analytics to governed Snowflake reporting.",
+      "artifacts": [
+        "src/gtm_demo.py",
+        "src/snowflake_adapter.py",
+        "sql/snowflake_gtm_schema.sql",
+        "sql/snowflake_gtm_analysis.sql",
+        "requirements-snowflake.txt",
+        "docs/SNOWFLAKE_INTEGRATION.md",
+        "outputs/synthetic_gtm_metrics.csv",
+        "app.py",
+        "CHECK_SNOWFLAKE_READINESS_WINDOWS.bat"
+      ]
+    },
+    {
+      "id": "AI-006",
+      "title": "Interview-grade decision intelligence redesign and project-wide preflight",
+      "date": "2026-08-02",
+      "tool": "ChatGPT",
+      "status": "Verified",
+      "problem": "The project contained strong individual features, but the eight tabs needed one coherent stakeholder story, clearer GTM relevance, stronger reliability evidence, and a safer interview launch workflow.",
+      "prompt_excerpt": "Improve every tab and the complete project so it is extraordinary and impressive for the Business Analyst AI-adoption interview, while keeping claims truthful and the demo stable.",
+      "ai_contribution": [
+        "Proposed a project-wide information architecture covering executive decisions, driver analysis, explainable investigation, SQL and Snowflake, reliability, operational transferability, AI assurance, and team adoption.",
+        "Structured deterministic decision briefs, human-context questions, read-only SQL safeguards, a 30-60-90 adoption plan, skill-gap mapping, and interview-focused documentation.",
+        "Created a repeatable Windows preflight workflow that runs the pipeline, tests, data-quality checks, and artifact checks before Streamlit starts."
+      ],
+      "human_decisions": [
+        "Kept public market data as the core analytical demonstration and labelled all GTM and operational records as synthetic.",
+        "Rejected unsupported claims of Red Hat data access, live Snowflake use, or measured productivity gains.",
+        "Prioritized a stable seven-minute interview route instead of demonstrating every feature.",
+        "Retained human ownership of analytical interpretation, SQL execution, accepted changes, and stakeholder recommendations."
+      ],
+      "verification": [
+        "Compiled all core Python modules successfully.",
+        "Ran the complete pipeline and regenerated all analytical outputs.",
+        "Passed the complete automated test suite.",
+        "Generated a PASS preflight summary with a 100/100 data-quality score.",
+        "Executed all dashboard data paths through a local no-network test harness."
+      ],
+      "impact": "Transforms the portfolio into a coherent, reproducible, role-specific demonstration of decision intelligence and governed team AI adoption.",
+      "artifacts": [
+        "app.py",
+        "src/dashboard_utils.py",
+        "src/preflight.py",
+        "RUN_INTERVIEW_DEMO_WINDOWS.bat",
+        "outputs/verification_summary.json",
+        "docs/INTERVIEW_DEMO_SCRIPT.md",
+        "docs/TECHNICAL_QA_BANK.md",
+        "tests/test_dashboard_utils.py"
+      ]
+    }
+  ],
+  "prompt_library": [
+    {
+      "name": "Debug with evidence",
+      "prompt": "Analyze this traceback. Identify the root cause, distinguish it from downstream symptoms, propose the smallest durable fix, and give me a verification checklist. Do not rewrite unrelated code."
+    },
+    {
+      "name": "Review an analytics feature",
+      "prompt": "Review this analytics function for correctness, edge cases, data leakage, and readability. Explain every recommended change. I will decide which changes to accept and will test them independently."
+    },
+    {
+      "name": "Translate analysis for stakeholders",
+      "prompt": "Convert these validated analytical findings into a concise stakeholder summary. Separate observed facts, interpretation, risks, and recommended next actions. Do not invent missing context or causal claims."
+    },
+    {
+      "name": "Create an onboarding use case",
+      "prompt": "Turn this completed AI-assisted task into a reusable onboarding guide with the business goal, approved inputs, prompt template, human checks, expected output, limitations, and escalation conditions."
+    },
+    {
+      "name": "Review Snowflake SQL in Cursor",
+      "prompt": "Review @sql/snowflake_gtm_analysis.sql with @Cursor Rules. Check Snowflake syntax, window partitions, analytical assumptions, data-privacy boundaries, and query cost. Propose the smallest patch and a read-only verification plan. Do not execute SQL or expose credentials."
+    },
+    {
+      "name": "Investigate a GTM KPI change",
+      "prompt": "Using only the supplied validated synthetic KPI extract, identify the largest material changes. Separate observed facts, possible interpretations, uncertainty, and analyst follow-up questions. Do not infer causality or invent business context."
+    }
+  ],
+  "responsible_use": [
+    "Use only approved, non-sensitive inputs.",
+    "Treat AI output as a proposal, not a final answer.",
+    "Verify code by running tests and reviewing changed lines.",
+    "Verify analytical claims against source data and calculations.",
+    "Document accepted, rejected, and modified suggestions.",
+    "Escalate security, legal, privacy, or domain-critical uncertainty."
+  ],
+  "gtm_mapping": [
+    {
+      "project_concept": "Symbol / entity",
+      "gtm_equivalent": "Region, account, product, segment, or sales team",
+      "business_use": "Compare performance consistently across entities"
+    },
+    {
+      "project_concept": "Time-series KPI",
+      "gtm_equivalent": "Pipeline value, win rate, bookings, activity, or conversion",
+      "business_use": "Track movement and seasonality over time"
+    },
+    {
+      "project_concept": "Event / anomaly flag",
+      "gtm_equivalent": "Unexpected KPI drop, surge, stalled pipeline, or unusual activity",
+      "business_use": "Direct analyst attention to changes that require investigation"
+    },
+    {
+      "project_concept": "SQL-ready output",
+      "gtm_equivalent": "Reusable regional reporting tables",
+      "business_use": "Support repeatable analysis and stakeholder reporting"
+    },
+    {
+      "project_concept": "Dashboard and summary",
+      "gtm_equivalent": "Executive view and decision-ready presentation",
+      "business_use": "Communicate insights clearly to business stakeholders"
+    }
+  ]
+}

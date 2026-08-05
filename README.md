@@ -1,155 +1,235 @@
-# Financial Market Analytics Platform
-![Python CI](https://github.com/reginoldraj7777-code/financial-market-analytics-platform/actions/workflows/ci.yml/badge.svg)
-
+# Time-Series Analytics & AI Adoption Platform
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-purple)
-![SQLite](https://img.shields.io/badge/SQLite-Analytics%20DB-lightgrey)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Interview%20Dashboard-EE0000)
+![SQLite](https://img.shields.io/badge/SQLite-Read--Only%20Workspace-lightgrey)
+![Snowflake](https://img.shields.io/badge/Snowflake-Optional%20Warehouse-29B5E8)
+![Cursor](https://img.shields.io/badge/Cursor-Version--Controlled%20Rules-7C3AED)
+![Data](https://img.shields.io/badge/Data-Public%20%2B%20Synthetic-22C55E)
 
-End-to-end time-series analytics platform for financial market data.  
-The project processes raw stock data, performs feature engineering, detects important market events, exports SQL-ready analytics outputs, and presents insights through an interactive Streamlit dashboard.
+A reproducible analytics and AI-adoption portfolio project designed to demonstrate the full Business Analyst workflow:
 
----
+**ingest → validate → engineer → detect → store → explain → govern → enable**
 
-## Overview
+The project uses public market data to demonstrate a reusable time-series analytics engine, then applies the same architecture to clearly labelled synthetic operational and EMEA GTM datasets. It includes SQL analysis, a local SQLite warehouse, optional Snowflake integration, Cursor-assisted workflows with repository rules and human review, auditable AI-development evidence, and a team-adoption studio.
 
-This project is designed as a complete applied data analytics workflow, not only as a dashboard.
-
-It covers:
-
-- Data ingestion for multiple stock symbols
-- Data validation and cleaning
-- Feature engineering for time-series analysis
-- Moving average and volatility calculation
-- Event and anomaly-style pattern detection
-- SQL-ready analytical exports
-- Automated report generation
-- Interactive dashboard visualization
-
-The goal is to convert raw time-series market data into clear, decision-ready insights.
-
----
-
-## Key Features
-
-### Time-Series Analytics
-- Multi-symbol stock analysis
-- Daily returns
-- 50-day and 200-day moving averages
-- Rolling volatility metrics
-- Trend and risk comparison
-
-### Event Detection
-- Large return movement detection
-- Volatility spike detection
-- High-volume activity detection
-- Explainable event flags instead of black-box results
-
-### SQL-Ready Outputs
-- Processed analytics tables
-- SQLite database export
-- Reusable SQL analysis queries
-- Summary reports for reporting workflows
-
-### Dashboard
-- Executive overview
-- Trend and risk analysis
-- Pattern detection view
-- SQL and report section
-- Generic synthetic telemetry extension for demonstrating transferability of the pipeline structure
-
-
----
+> **Important boundary:** No Red Hat, customer, confidential, or production data is used or implied. Snowflake live mode is optional and safely disabled until explicitly configured.
 
 ## Dashboard Preview
 
-### Executive Overview
-![Dashboard Overview](screenshots/dashboard_overview.png)
+![Dashboard overview](screenshots/dashboard_overview.png)
 
-### Time-Series Trend and Risk Analysis
-![Trend and Risk](screenshots/trend_risk.png)
+---
 
-### Event and Pattern Detection
-![Pattern Detection](screenshots/pattern_detection.png)
+## One-Click Windows Interview Run
 
-### SQL-Ready Outputs and Automated Reports
-![SQL and Reports](screenshots/sql_report.png)
+Extract the ZIP and double-click:
+
+```text
+RUN_INTERVIEW_DEMO_WINDOWS.bat
+```
+
+The script will:
+
+1. Create or reuse a Python virtual environment.
+2. Install runtime and verification dependencies.
+3. Run the complete analytics pipeline.
+4. Run automated tests and preflight checks.
+5. Create `outputs/verification_summary.json`.
+6. Start the Streamlit dashboard.
+
+For checks without opening Streamlit:
+
+```text
+PREFLIGHT_CHECK_WINDOWS.bat
+```
+
+---
+
+## Dashboard Tabs
+
+### 1. Overview
+
+- Business problem and solution framing
+- Data-quality score and review metrics
+- Deterministic decision brief
+- Human-context questions before action
+- Governed architecture
+- Direct mapping from the public demo to GTM Operations
+
+### 2. Trends
+
+- Moving averages and anomaly markers
+- Volatility, drawdown, and trend KPIs
+- Transparent risk-driver decomposition
+- Cross-entity indexed comparison
+- Entity benchmark table
+- Correlation analysis
+
+### 3. Investigation
+
+- Explainable rule catalogue
+- Severity and priority queue
+- Event drill-down with observed facts
+- Analyst follow-up questions
+- Close / monitor / investigate / escalate framework
+
+### 4. SQL & Snowflake
+
+- Read-only SQLite query workspace
+- Reusable query templates
+- Local analytical table discovery
+- Snowflake-ready schema, governed view, and native SQL
+- Environment-based configuration and safe live-mode gating
+- Data lineage, file fingerprints, and downloads
+
+### 5. Reliability
+
+- Data-quality controls
+- Pipeline batch monitoring
+- Reproducibility checklist
+- Automated-test and preflight evidence
+- Run metadata and generated quality report
+
+### 6. Operations
+
+- Synthetic operational data only
+- Service and software-version health matrix
+- Risk timeline, incident queue, and operational brief
+- Clear mapping to business and GTM monitoring patterns
+
+### 7. AI Evidence
+
+- Human-in-the-loop lifecycle
+- Auditable records of AI-supported tasks
+- Accept / modify / reject decision discipline
+- AI risk and control matrix
+- Bounded prompt library
+- Downloadable evidence and adoption assets
+
+### 8. GTM Studio
+
+- Synthetic EMEA regional KPIs
+- Explainable review queue and stakeholder draft
+- Tool-by-task AI use-case builder
+- 30–60–90 day adoption plan
+- Skill-gap and enablement matrix
+- Hypothetical capacity scenario with an explicit non-measured disclaimer
+- Snowflake-ready + Cursor-assisted operating model
+
+---
+
+## Interview Route
+
+Use this seven-minute sequence:
+
+```text
+1 Overview
+→ 2 Trends
+→ 3 Investigation
+→ 4 SQL, Data Model & Snowflake
+→ 7 AI Evidence
+→ 8 GTM Studio
+```
+
+The full speaking script is in:
+
+```text
+docs/INTERVIEW_DEMO_SCRIPT.md
+```
+
+Supporting preparation:
+
+```text
+docs/TECHNICAL_QA_BANK.md
+docs/DEMO_RISK_CHECKLIST.md
+```
+
+---
+
+## Technology Stack
+
+- Python
+- Pandas and NumPy
+- Streamlit and Plotly
+- SQLite
+- yfinance with deterministic offline fallback
+- Snowflake Connector for Python (optional)
+- Snowflake-native SQL examples
+- Cursor version-controlled project rules
+- Pytest
 
 ---
 
 ## Project Structure
 
 ```text
-financial-market-analytics-platform/
+financial-market-analytics-platform-main/
 ├── app.py
-├── README.md
+├── RUN_INTERVIEW_DEMO_WINDOWS.bat
+├── PREFLIGHT_CHECK_WINDOWS.bat
 ├── requirements.txt
-├── .gitignore
+├── requirements-dev.txt
+├── .streamlit/config.toml
+├── .cursor/rules/analytics-quality.mdc
 ├── src/
-│   └── main.py
+│   ├── main.py
+│   ├── dashboard_utils.py
+│   ├── preflight.py
+│   ├── gtm_demo.py
+│   └── snowflake_adapter.py
+├── sql/
+│   ├── snowflake_gtm_schema.sql
+│   └── snowflake_gtm_analysis.sql
 ├── docs/
-│   └── architecture.md
+│   ├── INTERVIEW_DEMO_SCRIPT.md
+│   ├── TECHNICAL_QA_BANK.md
+│   ├── DEMO_RISK_CHECKLIST.md
+│   ├── ai_assistance_log.json
+│   ├── AI_ASSISTED_DEVELOPMENT_EVIDENCE.md
+│   ├── AI_ADOPTION_PLAYBOOK.md
+│   ├── CURSOR_WORKFLOW.md
+│   └── SNOWFLAKE_INTEGRATION.md
 ├── outputs/
-│   ├── processed_stock_metrics.csv
-│   ├── processed_data.csv
-│   ├── simulated_system_telemetry.csv
-│   ├── event_stream_log.csv
-│   ├── analytics_pipeline.db
-│   ├── sql_analysis_queries.sql
-│   ├── automated_summary_report.md
-│   ├── data_quality_report.md
-│   └── pipeline_run_log.json
 └── tests/
-    └── test_pipeline_basic.py
 ```
 
 ---
 
-## Makefile Commands
+## Optional Snowflake Setup
 
-Common development commands:
+The interview demo works fully without Snowflake.
+
+To install the optional connector:
 
 ```bash
-make install      # install dependencies
-make pipeline     # run the analytics pipeline
-make dashboard    # start the Streamlit dashboard
-make syntax       # check Python syntax
-make clean        # remove local cache files
+python -m pip install -r requirements-snowflake.txt
 ```
 
----
-
-## Outputs Generated
-
-Running the pipeline creates analytical outputs inside the `outputs/` folder:
-
-- `processed_stock_metrics.csv`
-- `processed_data.csv`
-- `simulated_system_telemetry.csv`
-- `event_stream_log.csv`
-- `analytics_pipeline.db`
-- `sql_analysis_queries.sql`
-- `automated_summary_report.md`
-- `data_quality_report.md`
-- `pipeline_run_log.json`
+Configure the documented `SNOWFLAKE_*` environment variables. Credentials are never stored in source code. Live tests and uploads remain disabled until the connector, required fields, authentication, and explicit confirmation are present.
 
 ---
 
-## Tech Stack
+## Cursor Workflow
 
-- Python
-- Pandas
-- NumPy
-- Streamlit
-- Plotly
-- SQLite
-- yfinance
+The repository includes:
+
+```text
+.cursor/rules/analytics-quality.mdc
+AGENTS.md
+docs/CURSOR_WORKFLOW.md
+```
+
+The intended workflow is:
+
+```text
+explicit file context → bounded task → plan before edits → review diff → test → validate analysis → document decision
+```
+
+The human owner retains responsibility for privacy, data quality, architecture, accepted changes, SQL execution, and final stakeholder communication.
 
 ---
 
-## Note
+## Disclaimer
 
-This project is for educational and portfolio purposes.  
-It is not intended as financial advice or a production trading system.
+This project is for educational, portfolio, and interview demonstration purposes. It is not a production trading system and does not provide financial advice.

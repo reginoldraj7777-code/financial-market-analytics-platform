@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-05T07:24:53",
+  "status": "PASS",
+  "tests_passed": "18 passed in 0.41s",
+  "data_quality_score": 100.0,
+  "checks": [
+    {
+      "name": "Python syntax",
+      "passed": true,
+      "detail": "All core modules compiled"
+    },
+    {
+      "name": "Automated tests",
+      "passed": true,
+      "detail": "18 passed in 0.41s"
+    },
+    {
+      "name": "Data quality",
+      "passed": true,
+      "detail": "Weighted gate score 100/100; 5/5 implemented checks passed"
+    },
+    {
+      "name": "Required artifacts",
+      "passed": true,
+      "detail": "All present"
+    },
+    {
+      "name": "AI / Snowflake governance assets",
+      "passed": true,
+      "detail": "All present"
+    }
+  ],
+  "demo_boundaries": [
+    "Public market data and deterministic offline fallback",
+    "Synthetic operational and GTM datasets",
+    "No Red Hat, customer, or confidential data",
+    "Snowflake live mode optional and disabled without explicit configuration"
+  ]
+}

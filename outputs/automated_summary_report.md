@@ -1,6 +1,6 @@
 # Automated Analytics Summary Report
 
-Generated: 2026-07-08 14:28
+Generated: 2026-08-03 12:46
 
 ## Pipeline Summary
 
@@ -16,7 +16,7 @@ Generated: 2026-07-08 14:28
 - Symbol: NVDA
 - Latest date: 2024-12-31
 - Latest close: 183.24
-- Risk score: 72.5/100
+- Attention score: 72.5/100
 - Trend signal: Short-term upward / Above long MA
 
 ## Event Summary by Symbol
@@ -36,4 +36,4 @@ Generated: 2026-07-08 14:28
 
 ## Extension Note
 
-The financial dataset is used because it is public and time-series based. The same pipeline pattern can be reusered to internal engineering telemetry: entity IDs, timestamps, signal values, anomaly rules, SQL-ready outputs, automated summaries, and dashboards.
+The financial dataset is public and time-series based. The same governed pipeline pattern is demonstrated again with synthetic operational telemetry and synthetic EMEA GTM metrics: entities, timestamps, KPIs, explainable review flags, SQL-ready outputs, stakeholder summaries, and dashboards.

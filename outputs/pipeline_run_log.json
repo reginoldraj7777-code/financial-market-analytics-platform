@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T14:28:54",
+  "generated_at": "2026-08-03T12:46:06",
   "stock_rows": 3128,
   "symbols": [
     "AAPL",
@@ -7,8 +7,13 @@
     "NVDA",
     "TSLA"
   ],
+  "data_sources": [
+    "offline_fallback"
+  ],
   "telemetry_rows_simulated": 3038,
   "stream_batches": 13,
+  "synthetic_gtm_rows": 3936,
+  "synthetic_gtm_review_items": 55,
   "outputs": [
     "processed_stock_metrics.csv",
     "simulated_system_telemetry.csv",
@@ -16,6 +21,7 @@
     "analytics_pipeline.db",
     "automated_summary_report.md",
     "data_quality_report.md",
-    "sql_analysis_queries.sql"
+    "sql_analysis_queries.sql",
+    "synthetic_gtm_metrics.csv"
   ]
 }
