@@ -1,177 +1,162 @@
 # Time-Series Analytics & AI Adoption Platform
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Interview%20Dashboard-EE0000)
-![SQLite](https://img.shields.io/badge/SQLite-Read--Only%20Workspace-lightgrey)
-![Snowflake](https://img.shields.io/badge/Snowflake-Optional%20Warehouse-29B5E8)
-![Cursor](https://img.shields.io/badge/Cursor-Version--Controlled%20Rules-7C3AED)
+![Streamlit](https://img.shields.io/badge/Streamlit-Interactive%20Dashboard-EE0000)
+![SQLite](https://img.shields.io/badge/SQLite-Local%20Analytics-lightgrey)
+![Snowflake](https://img.shields.io/badge/Snowflake-Ready-29B5E8)
+![Cursor](https://img.shields.io/badge/Cursor-Assisted%20Workflow-7C3AED)
 ![Data](https://img.shields.io/badge/Data-Public%20%2B%20Synthetic-22C55E)
 
-A reproducible analytics and AI-adoption portfolio project designed to demonstrate the full Business Analyst workflow:
+An end-to-end analytics platform that converts multi-entity time-series data into validated metrics, explainable review flags, reusable SQL outputs, and stakeholder-ready insights.
 
-**ingest → validate → engineer → detect → store → explain → govern → enable**
+The project uses public market data as a realistic time-series test environment and extends the same analytical operating model to clearly labelled synthetic EMEA GTM and operational datasets.
 
-The project uses public market data to demonstrate a reusable time-series analytics engine, then applies the same architecture to clearly labelled synthetic operational and EMEA GTM datasets. It includes SQL analysis, a local SQLite warehouse, optional Snowflake integration, Cursor-assisted workflows with repository rules and human review, auditable AI-development evidence, and a team-adoption studio.
-
-> **Important boundary:** No Red Hat, customer, confidential, or production data is used or implied. Snowflake live mode is optional and safely disabled until explicitly configured.
-
-## Dashboard Preview
+> **Data boundary:** No company, customer, confidential, or production data is used. The GTM and operational datasets are deterministic and synthetic. Snowflake integration is optional and disabled until explicitly configured.
 
 ![Dashboard overview](screenshots/dashboard_overview.png)
 
----
+## Why this project exists
 
-## One-Click Windows Interview Run
+Analytical teams often have plenty of data but still need a reliable way to answer three practical questions:
 
-Extract the ZIP and double-click:
+1. What changed?
+2. Why was it flagged?
+3. What should an analyst review next?
+
+The platform supports this workflow through transparent rules and review queues. It prioritises investigation; it does not automate business decisions or claim causality.
+
+## Core workflow
+
+```text
+ingest → validate → engineer → detect → store → explain → review
+```
+
+- **Ingest:** Load public time-series data with deterministic offline fallback.
+- **Validate:** Check structure, completeness, duplicates, ranges, and freshness.
+- **Engineer:** Calculate returns, moving averages, volatility, drawdown, and comparison metrics.
+- **Detect:** Apply explainable anomaly and prioritisation rules.
+- **Store:** Persist reusable analytical outputs in CSV, SQLite, and SQL assets.
+- **Explain:** Show the metric, threshold, and rule behind each review flag.
+- **Review:** Keep final interpretation and action with the human analyst.
+
+## Key capabilities
+
+### Comparable analytics
+
+- Indexed cross-entity performance comparison
+- Moving averages and trend indicators
+- Return, volatility, and drawdown analysis
+- Transparent attention-score decomposition
+- Correlation and benchmark views
+
+### Explainable investigation
+
+- Return-anomaly, volatility-spike, and high-volume rules
+- Severity and review-priority queues
+- Supporting metrics and thresholds for each flag
+- Human follow-up questions before action
+- Clear separation between observed facts and interpretation
+
+### SQL and warehouse readiness
+
+- Read-only SQLite analytical workspace
+- Reusable SQL query templates
+- Snowflake-ready schema and analysis scripts
+- Environment-based connection configuration
+- Safe live-mode gating and explicit confirmation before uploads
+
+### Reliability and reproducibility
+
+- Data-quality checks and generated reports
+- Pipeline run metadata and file fingerprints
+- Automated tests and preflight verification
+- Deterministic synthetic datasets
+- One-command Windows demo workflow
+
+### Human-reviewed AI assistance
+
+AI tools support bounded tasks such as repository understanding, debugging, SQL drafting, documentation, and first-pass summaries.
+
+The repository records:
+
+```text
+problem → bounded prompt → AI contribution → human decision → verification → impact
+```
+
+AI suggestions are treated as proposals. The human owner reviews changes, validates outputs, protects data boundaries, and owns the final analytical or technical decision.
+
+## Synthetic GTM extension
+
+The same operating model is demonstrated with synthetic EMEA GTM concepts:
+
+- regions, accounts, and products
+- pipeline value and bookings
+- win rate and regional comparisons
+- explainable review queues
+- stakeholder-ready summaries
+- skill-gap and AI-enablement planning
+
+This extension demonstrates transferability of the workflow without implying access to any organisation's internal data or systems.
+
+## Dashboard sections
+
+1. **Overview** — business framing, data quality, decision brief, and architecture
+2. **Trends** — indexed comparisons, KPIs, risk drivers, and correlations
+3. **Investigation** — rule catalogue, severity queue, and event drill-down
+4. **SQL & Snowflake** — read-only queries, SQL assets, lineage, and readiness checks
+5. **Reliability** — quality controls, tests, run metadata, and reproducibility evidence
+6. **Operations** — synthetic service-health and incident-monitoring use cases
+7. **AI Evidence** — auditable AI-assisted tasks, controls, prompts, and decisions
+8. **GTM Studio** — synthetic regional KPIs, review queues, and adoption planning
+
+## Quick start
+
+### Windows
+
+Double-click:
 
 ```text
 RUN_INTERVIEW_DEMO_WINDOWS.bat
 ```
 
-The script will:
+The script creates or reuses a virtual environment, installs dependencies, runs the pipeline, executes verification checks, and starts Streamlit.
 
-1. Create or reuse a Python virtual environment.
-2. Install runtime and verification dependencies.
-3. Run the complete analytics pipeline.
-4. Run automated tests and preflight checks.
-5. Create `outputs/verification_summary.json`.
-6. Start the Streamlit dashboard.
+### Manual setup
 
-For checks without opening Streamlit:
-
-```text
-PREFLIGHT_CHECK_WINDOWS.bat
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python src/main.py
+streamlit run app.py
 ```
 
----
+### Verification
 
-## Dashboard Tabs
-
-### 1. Overview
-
-- Business problem and solution framing
-- Data-quality score and review metrics
-- Deterministic decision brief
-- Human-context questions before action
-- Governed architecture
-- Direct mapping from the public demo to GTM Operations
-
-### 2. Trends
-
-- Moving averages and anomaly markers
-- Volatility, drawdown, and trend KPIs
-- Transparent risk-driver decomposition
-- Cross-entity indexed comparison
-- Entity benchmark table
-- Correlation analysis
-
-### 3. Investigation
-
-- Explainable rule catalogue
-- Severity and priority queue
-- Event drill-down with observed facts
-- Analyst follow-up questions
-- Close / monitor / investigate / escalate framework
-
-### 4. SQL & Snowflake
-
-- Read-only SQLite query workspace
-- Reusable query templates
-- Local analytical table discovery
-- Snowflake-ready schema, governed view, and native SQL
-- Environment-based configuration and safe live-mode gating
-- Data lineage, file fingerprints, and downloads
-
-### 5. Reliability
-
-- Data-quality controls
-- Pipeline batch monitoring
-- Reproducibility checklist
-- Automated-test and preflight evidence
-- Run metadata and generated quality report
-
-### 6. Operations
-
-- Synthetic operational data only
-- Service and software-version health matrix
-- Risk timeline, incident queue, and operational brief
-- Clear mapping to business and GTM monitoring patterns
-
-### 7. AI Evidence
-
-- Human-in-the-loop lifecycle
-- Auditable records of AI-supported tasks
-- Accept / modify / reject decision discipline
-- AI risk and control matrix
-- Bounded prompt library
-- Downloadable evidence and adoption assets
-
-### 8. GTM Studio
-
-- Synthetic EMEA regional KPIs
-- Explainable review queue and stakeholder draft
-- Tool-by-task AI use-case builder
-- 30–60–90 day adoption plan
-- Skill-gap and enablement matrix
-- Hypothetical capacity scenario with an explicit non-measured disclaimer
-- Snowflake-ready + Cursor-assisted operating model
-
----
-
-## Interview Route
-
-Use this seven-minute sequence:
-
-```text
-1 Overview
-→ 2 Trends
-→ 3 Investigation
-→ 4 SQL, Data Model & Snowflake
-→ 7 AI Evidence
-→ 8 GTM Studio
+```bash
+python -m pip install -r requirements-dev.txt
+pytest
+python src/preflight.py
 ```
 
-The full speaking script is in:
+## Optional Snowflake setup
 
-```text
-docs/INTERVIEW_DEMO_SCRIPT.md
+The project works fully in local mode.
+
+To enable the optional Snowflake connector:
+
+```bash
+python -m pip install -r requirements-snowflake.txt
 ```
 
-Supporting preparation:
+Configure the documented `SNOWFLAKE_*` environment variables. Credentials are never stored in source code, and live actions remain disabled until the required configuration and explicit confirmation are present.
+
+## Repository structure
 
 ```text
-docs/TECHNICAL_QA_BANK.md
-docs/DEMO_RISK_CHECKLIST.md
-```
-
----
-
-## Technology Stack
-
-- Python
-- Pandas and NumPy
-- Streamlit and Plotly
-- SQLite
-- yfinance with deterministic offline fallback
-- Snowflake Connector for Python (optional)
-- Snowflake-native SQL examples
-- Cursor version-controlled project rules
-- Pytest
-
----
-
-## Project Structure
-
-```text
-financial-market-analytics-platform-main/
+.
 ├── app.py
-├── RUN_INTERVIEW_DEMO_WINDOWS.bat
-├── PREFLIGHT_CHECK_WINDOWS.bat
-├── requirements.txt
-├── requirements-dev.txt
-├── .streamlit/config.toml
-├── .cursor/rules/analytics-quality.mdc
 ├── src/
 │   ├── main.py
 │   ├── dashboard_utils.py
@@ -179,57 +164,22 @@ financial-market-analytics-platform-main/
 │   ├── gtm_demo.py
 │   └── snowflake_adapter.py
 ├── sql/
-│   ├── snowflake_gtm_schema.sql
-│   └── snowflake_gtm_analysis.sql
 ├── docs/
-│   ├── INTERVIEW_DEMO_SCRIPT.md
-│   ├── TECHNICAL_QA_BANK.md
-│   ├── DEMO_RISK_CHECKLIST.md
-│   ├── ai_assistance_log.json
-│   ├── AI_ASSISTED_DEVELOPMENT_EVIDENCE.md
-│   ├── AI_ADOPTION_PLAYBOOK.md
-│   ├── CURSOR_WORKFLOW.md
-│   └── SNOWFLAKE_INTEGRATION.md
 ├── outputs/
-└── tests/
+├── screenshots/
+├── tests/
+├── requirements.txt
+├── requirements-dev.txt
+└── requirements-snowflake.txt
 ```
 
----
+## Limitations
 
-## Optional Snowflake Setup
-
-The interview demo works fully without Snowflake.
-
-To install the optional connector:
-
-```bash
-python -m pip install -r requirements-snowflake.txt
-```
-
-Configure the documented `SNOWFLAKE_*` environment variables. Credentials are never stored in source code. Live tests and uploads remain disabled until the connector, required fields, authentication, and explicit confirmation are present.
-
----
-
-## Cursor Workflow
-
-The repository includes:
-
-```text
-.cursor/rules/analytics-quality.mdc
-AGENTS.md
-docs/CURSOR_WORKFLOW.md
-```
-
-The intended workflow is:
-
-```text
-explicit file context → bounded task → plan before edits → review diff → test → validate analysis → document decision
-```
-
-The human owner retains responsibility for privacy, data quality, architecture, accepted changes, SQL execution, and final stakeholder communication.
-
----
+- The attention score is a transparent heuristic, not a predictive model.
+- The synthetic GTM and operations datasets do not represent real organisational performance.
+- Snowflake support is architecture- and SQL-ready; the default demonstration runs locally.
+- Anomaly detection identifies patterns requiring review but does not determine business causality.
 
 ## Disclaimer
 
-This project is for educational, portfolio, and interview demonstration purposes. It is not a production trading system and does not provide financial advice.
+This project is for educational and portfolio demonstration purposes. It is not a production trading system and does not provide financial advice.
