@@ -25,3 +25,9 @@ env/
 # Temporary files
 *.log
 *.tmp
+
+.coverage
+htmlcov/
+data/reviews.db
+evidence/**/*.csv.gz
+evidence/sample/

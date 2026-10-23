@@ -1,0 +1,902 @@
+[
+  {
+    "observation_id": 10628184,
+    "entity": 28,
+    "step": 128184,
+    "value": 127.39942252410151,
+    "score": 12.027138059723196,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 1189045,
+    "entity": 3,
+    "step": 64045,
+    "value": 82.22877686318881,
+    "score": 11.513834625082033,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8904582,
+    "entity": 23,
+    "step": 279582,
+    "value": 216.62409447034605,
+    "score": 11.486082903892084,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11600774,
+    "entity": 30,
+    "step": 350774,
+    "value": 134.40340246497212,
+    "score": 11.455574111279228,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 946686,
+    "entity": 2,
+    "step": 196686,
+    "value": 130.59257610518742,
+    "score": 11.443765511069438,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11783591,
+    "entity": 31,
+    "step": 158591,
+    "value": 134.92381039671648,
+    "score": 11.331522469464243,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2699954,
+    "entity": 7,
+    "step": 74954,
+    "value": 151.34740557396253,
+    "score": 11.284133142834149,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 1670660,
+    "entity": 4,
+    "step": 170660,
+    "value": 84.62040870059903,
+    "score": 11.281244966214667,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4359647,
+    "entity": 11,
+    "step": 234647,
+    "value": 98.7859893491655,
+    "score": 11.2795086774067,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 7695658,
+    "entity": 20,
+    "step": 195658,
+    "value": 114.97505140520491,
+    "score": 11.264746286799836,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 186100,
+    "entity": 0,
+    "step": 186100,
+    "value": 121.93404634819193,
+    "score": 11.216894749330514,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 7631169,
+    "entity": 20,
+    "step": 131169,
+    "value": 205.08468078519502,
+    "score": 11.207924565981623,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2782757,
+    "entity": 7,
+    "step": 157757,
+    "value": 151.12452509251773,
+    "score": 11.201162108260132,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4753161,
+    "entity": 12,
+    "step": 253161,
+    "value": 171.0048014102738,
+    "score": 11.165616642774392,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3645009,
+    "entity": 9,
+    "step": 270009,
+    "value": 157.20748263551752,
+    "score": 11.15632499950693,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 7003315,
+    "entity": 18,
+    "step": 253315,
+    "value": 111.48416892477093,
+    "score": 11.129475503808438,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 9881821,
+    "entity": 26,
+    "step": 131821,
+    "value": 228.36908117530805,
+    "score": 11.105008069628962,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8704977,
+    "entity": 23,
+    "step": 79977,
+    "value": 123.09920984779704,
+    "score": 11.093550544570903,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 835413,
+    "entity": 2,
+    "step": 85413,
+    "value": 82.3419798599262,
+    "score": 11.02218777876143,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 1644564,
+    "entity": 4,
+    "step": 144564,
+    "value": 138.69124523670882,
+    "score": 11.0158312905692,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3552392,
+    "entity": 9,
+    "step": 177392,
+    "value": 97.2013294196966,
+    "score": 10.977582886724148,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8560861,
+    "entity": 22,
+    "step": 310861,
+    "value": 210.90711115743588,
+    "score": 10.976039934726332,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10769715,
+    "entity": 28,
+    "step": 269715,
+    "value": 235.50486190695833,
+    "score": 10.975914456199083,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11842896,
+    "entity": 31,
+    "step": 217896,
+    "value": 249.09478713092759,
+    "score": 10.974287000053469,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3588271,
+    "entity": 9,
+    "step": 213271,
+    "value": 156.6755226906392,
+    "score": 10.96010591549478,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11357264,
+    "entity": 30,
+    "step": 107264,
+    "value": 243.28495717544655,
+    "score": 10.94311807000124,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 6834215,
+    "entity": 18,
+    "step": 84215,
+    "value": 195.69860341600267,
+    "score": 10.922671400185665,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 5286138,
+    "entity": 14,
+    "step": 36138,
+    "value": 178.97336273236434,
+    "score": 10.921593254763504,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 33290,
+    "entity": 0,
+    "step": 33290,
+    "value": 121.34942577912712,
+    "score": 10.9175018589578,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4753506,
+    "entity": 12,
+    "step": 253506,
+    "value": 170.21116935799614,
+    "score": 10.912651551867683,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11382566,
+    "entity": 30,
+    "step": 132566,
+    "value": 137.0618598739521,
+    "score": 10.9086865384564,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2514473,
+    "entity": 6,
+    "step": 264473,
+    "value": 89.68834015906415,
+    "score": 10.905008129014279,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 1966743,
+    "entity": 5,
+    "step": 91743,
+    "value": 87.66550168904351,
+    "score": 10.901976733483016,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8662101,
+    "entity": 23,
+    "step": 37101,
+    "value": 123.8956012642914,
+    "score": 10.901278441391966,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3694716,
+    "entity": 9,
+    "step": 319716,
+    "value": 156.5035687845141,
+    "score": 10.896678888183732,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4708282,
+    "entity": 12,
+    "step": 208282,
+    "value": 170.13576334436746,
+    "score": 10.888616372041279,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 6889033,
+    "entity": 18,
+    "step": 139033,
+    "value": 112.50328029391049,
+    "score": 10.862613964458719,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2270159,
+    "entity": 6,
+    "step": 20159,
+    "value": 89.80404217491443,
+    "score": 10.860413136275335,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 5348602,
+    "entity": 14,
+    "step": 98602,
+    "value": 178.6769093479071,
+    "score": 10.834367197734059,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3577454,
+    "entity": 9,
+    "step": 202454,
+    "value": 156.30073919921503,
+    "score": 10.821863038191394,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 1907381,
+    "entity": 5,
+    "step": 32381,
+    "value": 142.04786969706882,
+    "score": 10.813068811115802,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10907475,
+    "entity": 29,
+    "step": 32475,
+    "value": 240.12105816397437,
+    "score": 10.792520458664823,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8074144,
+    "entity": 21,
+    "step": 199144,
+    "value": 208.5435067249854,
+    "score": 10.791475808224941,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2389812,
+    "entity": 6,
+    "step": 139812,
+    "value": 145.97681192660178,
+    "score": 10.790240405012346,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8557255,
+    "entity": 22,
+    "step": 307255,
+    "value": 121.72080977524968,
+    "score": 10.78850097572167,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3960486,
+    "entity": 10,
+    "step": 210486,
+    "value": 98.7845781663685,
+    "score": 10.788118273813925,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10087707,
+    "entity": 26,
+    "step": 337707,
+    "value": 226.9222357325955,
+    "score": 10.786969794540742,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11579793,
+    "entity": 30,
+    "step": 329793,
+    "value": 242.47191068654672,
+    "score": 10.775861291914602,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 207817,
+    "entity": 0,
+    "step": 207817,
+    "value": 121.07023505604586,
+    "score": 10.774524136360293,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11008044,
+    "entity": 29,
+    "step": 133044,
+    "value": 239.99734863754918,
+    "score": 10.767458964007014,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 9485422,
+    "entity": 25,
+    "step": 110422,
+    "value": 127.2773244096563,
+    "score": 10.764819445228483,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3524348,
+    "entity": 9,
+    "step": 149348,
+    "value": 156.1383357478046,
+    "score": 10.761958797687994,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3676835,
+    "entity": 9,
+    "step": 301835,
+    "value": 156.13212787599542,
+    "score": 10.759668958139377,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 6991563,
+    "entity": 18,
+    "step": 241563,
+    "value": 112.93893333022768,
+    "score": 10.748535127332072,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8769390,
+    "entity": 23,
+    "step": 144390,
+    "value": 124.530895007086,
+    "score": 10.747900012727799,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11123667,
+    "entity": 29,
+    "step": 248667,
+    "value": 239.87455503338958,
+    "score": 10.742583019982444,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8978893,
+    "entity": 23,
+    "step": 353893,
+    "value": 124.55322005616108,
+    "score": 10.742510095093913,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2457462,
+    "entity": 6,
+    "step": 207462,
+    "value": 90.12273706046739,
+    "score": 10.737578663576397,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10715705,
+    "entity": 28,
+    "step": 215705,
+    "value": 234.37978799771957,
+    "score": 10.73651730498953,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8937254,
+    "entity": 23,
+    "step": 312254,
+    "value": 213.49726980599016,
+    "score": 10.731176281299502,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 1110479,
+    "entity": 2,
+    "step": 360479,
+    "value": 129.05679539619427,
+    "score": 10.728690872482938,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4650835,
+    "entity": 12,
+    "step": 150835,
+    "value": 169.61031867642546,
+    "score": 10.721134277774896,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8862427,
+    "entity": 23,
+    "step": 237427,
+    "value": 124.69129431459712,
+    "score": 10.709174944168717,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3524603,
+    "entity": 9,
+    "step": 149603,
+    "value": 97.93030401025653,
+    "score": 10.708692855049824,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4076906,
+    "entity": 10,
+    "step": 326906,
+    "value": 160.9452902623728,
+    "score": 10.705685107034924,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4231322,
+    "entity": 11,
+    "step": 106322,
+    "value": 165.6037858348087,
+    "score": 10.705514496927622,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3534562,
+    "entity": 9,
+    "step": 159562,
+    "value": 155.9709177998804,
+    "score": 10.700204906807363,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11002244,
+    "entity": 29,
+    "step": 127244,
+    "value": 134.0535055440725,
+    "score": 10.695003422190755,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 1820715,
+    "entity": 4,
+    "step": 320715,
+    "value": 137.91262943738948,
+    "score": 10.69475514371569,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 7709084,
+    "entity": 20,
+    "step": 209084,
+    "value": 203.00427157078778,
+    "score": 10.689085993054926,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 827311,
+    "entity": 2,
+    "step": 77311,
+    "value": 128.97049404772986,
+    "score": 10.688508113836894,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4497018,
+    "entity": 11,
+    "step": 372018,
+    "value": 100.58265139942188,
+    "score": 10.688353941859255,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10033916,
+    "entity": 26,
+    "step": 283916,
+    "value": 129.2366435499213,
+    "score": 10.685784876824389,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3565254,
+    "entity": 9,
+    "step": 190254,
+    "value": 155.91975211274854,
+    "score": 10.681331898870344,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 940822,
+    "entity": 2,
+    "step": 190822,
+    "value": 83.09992779422748,
+    "score": 10.669279748328359,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4350648,
+    "entity": 11,
+    "step": 225648,
+    "value": 100.64482813583429,
+    "score": 10.667895964152297,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8361939,
+    "entity": 22,
+    "step": 111939,
+    "value": 209.60966983730714,
+    "score": 10.659419397118885,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3518400,
+    "entity": 9,
+    "step": 143400,
+    "value": 155.84258627549562,
+    "score": 10.652868459003152,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10700140,
+    "entity": 28,
+    "step": 200140,
+    "value": 233.97220799103496,
+    "score": 10.649791009331064,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10027523,
+    "entity": 26,
+    "step": 277523,
+    "value": 226.2306053479189,
+    "score": 10.634939088255512,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 6503667,
+    "entity": 17,
+    "step": 128667,
+    "value": 190.79972234336896,
+    "score": 10.628607402877167,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11378051,
+    "entity": 30,
+    "step": 128051,
+    "value": 241.72710592322983,
+    "score": 10.622642937593273,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 9737230,
+    "entity": 25,
+    "step": 362230,
+    "value": 127.91046314132424,
+    "score": 10.622144654015164,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 45134,
+    "entity": 0,
+    "step": 45134,
+    "value": 79.33366647888765,
+    "score": 10.59939351512264,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 7589407,
+    "entity": 20,
+    "step": 89407,
+    "value": 202.59339132629702,
+    "score": 10.586615518391078,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2836145,
+    "entity": 7,
+    "step": 211145,
+    "value": 149.47321390159763,
+    "score": 10.58643354600052,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 9788,
+    "entity": 0,
+    "step": 9788,
+    "value": 79.3739605503389,
+    "score": 10.57875832170827,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 6387157,
+    "entity": 17,
+    "step": 12157,
+    "value": 190.57876182829233,
+    "score": 10.569463222364076,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 9411004,
+    "entity": 25,
+    "step": 36004,
+    "value": 128.14825091947702,
+    "score": 10.56856031316833,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 6529016,
+    "entity": 17,
+    "step": 154016,
+    "value": 190.56680515788003,
+    "score": 10.566262797740901,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 4898145,
+    "entity": 13,
+    "step": 23145,
+    "value": 174.01192645471286,
+    "score": 10.557906960262603,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8574933,
+    "entity": 22,
+    "step": 324933,
+    "value": 122.67303214952909,
+    "score": 10.556125795905235,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3665995,
+    "entity": 9,
+    "step": 290995,
+    "value": 155.57362349549246,
+    "score": 10.553658676699607,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 10861219,
+    "entity": 28,
+    "step": 361219,
+    "value": 233.49093167106912,
+    "score": 10.547383355044246,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11910184,
+    "entity": 31,
+    "step": 285184,
+    "value": 138.9455251401539,
+    "score": 10.545792108089618,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3640894,
+    "entity": 9,
+    "step": 265894,
+    "value": 155.54155041633982,
+    "score": 10.541828180299696,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 2970840,
+    "entity": 7,
+    "step": 345840,
+    "value": 92.76469444796305,
+    "score": 10.524273402082368,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 3636119,
+    "entity": 9,
+    "step": 261119,
+    "value": 155.48541582616198,
+    "score": 10.521122339621012,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 11412301,
+    "entity": 30,
+    "step": 162301,
+    "value": 241.21376525621508,
+    "score": 10.517040481647717,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  },
+  {
+    "observation_id": 8433075,
+    "entity": 22,
+    "step": 183075,
+    "value": 122.83681125770786,
+    "score": 10.516158031293509,
+    "rule": "absolute robust z-score >= 2.5",
+    "status": "pending_review"
+  }
+]

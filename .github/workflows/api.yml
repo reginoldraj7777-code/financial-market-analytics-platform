@@ -1,0 +1,30 @@
+name: API and scale evidence
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q --cov=src.api --cov=src.investigation --cov-branch --cov-fail-under=90 --cov-report=json:evidence/ci/coverage.json
+      - run: python -m src.investigation --full --output evidence/ci
+      - run: docker build -t investigation-api .
+      - name: Container smoke and HTTP evaluation
+        run: |
+          docker run -d --rm --name investigation -p 8000:8000 investigation-api
+          trap 'docker logs investigation; docker stop investigation' EXIT
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/health; then break; fi
+            sleep 1
+          done
+          python scripts/load_test.py --output evidence/ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: investigation-evidence
+          path: |
+            evidence/ci/*.json
+            evidence/ci/*.csv

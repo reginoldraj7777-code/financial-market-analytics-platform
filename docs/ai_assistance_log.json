@@ -204,6 +204,33 @@
         "docs/TECHNICAL_QA_BANK.md",
         "tests/test_dashboard_utils.py"
       ]
+    },
+    {
+      "id": "AI-20261020",
+      "title": "Reproducible scale benchmark and human review API",
+      "date": "2026-10-20",
+      "tool": "ChatGPT / Codex",
+      "status": "Implemented; automated verification recorded; owner review pending",
+      "problem": "R\u00e9sum\u00e9-scale processing, API deployment source and metric evidence were missing.",
+      "prompt_excerpt": "Fill gaps in the repositories and make the claims verifiable.",
+      "ai_contribution": [
+        "Implemented synthetic benchmark with label-separated scoring and review simulation.",
+        "Added FastAPI scoring and append-only SQLite human-review history, container source and CI.",
+        "Added contract tests, coverage, real HTTP load harness and evidence documentation."
+      ],
+      "human_decisions": [
+        "Repository owner authorized implementation; no subsequent code review is asserted."
+      ],
+      "verification": [
+        "See evidence/full/verification.md and machine-readable metrics."
+      ],
+      "impact": "Creates reproducible current evidence; does not establish historical deployment or production outcomes.",
+      "artifacts": [
+        "src/investigation.py",
+        "src/api.py",
+        "tests/test_api_evidence.py",
+        "evidence/full/metrics.json"
+      ]
     }
   ],
   "prompt_library": [

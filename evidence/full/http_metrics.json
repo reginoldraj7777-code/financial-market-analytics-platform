@@ -1,0 +1,20 @@
+{
+  "generated_utc": "2026-10-20T13:13:54.562356+00:00",
+  "requests": 1500,
+  "concurrency": 8,
+  "warmup_requests_excluded": 20,
+  "values_per_request": 100,
+  "success_rate": 1.0,
+  "p50_ms": 14.549674999955187,
+  "p95_ms": 59.13793139998233,
+  "p99_ms": 84.44446172002586,
+  "elapsed_seconds": 4.011460797000041,
+  "requests_per_second": 373.9286199984232,
+  "harness_sha256": "9903b48601ea77e7d306435ba6d4669db285e418c2b3e4807de0eb4d5a5b2658",
+  "api_sha256": "d46797f011fc89095deb824069cb21825228a13bcceca97c0624620fd28e0fdc",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
+  },
+  "scope": "Local HTTP /score microbenchmark; not cloud availability or a production SLA."
+}

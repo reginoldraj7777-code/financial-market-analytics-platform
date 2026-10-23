@@ -1,185 +1,74 @@
-# Time-Series Analytics & AI Adoption Platform
+# Time-Series Investigation Platform
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Interactive%20Dashboard-EE0000)
-![SQLite](https://img.shields.io/badge/SQLite-Local%20Analytics-lightgrey)
-![Snowflake](https://img.shields.io/badge/Snowflake-Ready-29B5E8)
-![Cursor](https://img.shields.io/badge/Cursor-Assisted%20Workflow-7C3AED)
-![Data](https://img.shields.io/badge/Data-Public%20%2B%20Synthetic-22C55E)
+### Detect unusual behavior. Explain the flag. Preserve the review decision.
 
-An end-to-end analytics platform that converts multi-entity time-series data into validated metrics, explainable review flags, reusable SQL outputs, and stakeholder-ready insights.
+A Python analytics portfolio with a deterministic **12-million-observation** benchmark, an explainable FastAPI scoring service, an append-only human review log, and an existing Streamlit analytics dashboard. Public and synthetic inputs only.
 
-The project uses public market data as a realistic time-series test environment and extends the same analytical operating model to clearly labelled synthetic EMEA GTM and operational datasets.
+[Run locally](#run-locally) · [API guide](docs/api_guide.md) · [Claim-to-code map](docs/resume_evidence.md) · [Methodology](docs/evaluation_methodology.md)
 
-> **Data boundary:** No company, customer, confidential, or production data is used. The GTM and operational datasets are deterministic and synthetic. Snowflake integration is optional and disabled until explicitly configured.
+![Scale, simulated review counts and real HTTP timings](evidence/full/evaluation.png)
 
-![Dashboard overview](screenshots/dashboard_overview.png)
+## Executed evidence
 
-## Why this project exists
+| Capability | Measured result | Evidence |
+|---|---:|---|
+| Multi-asset scale | **12,000,000 observations / 32 synthetic assets** | [Manifest](evidence/full/metrics.json), [per-asset counts](evidence/full/entity_results.csv) |
+| Detection recall | **96.03%** of injected anomalies | [Benchmark implementation](src/investigation.py) |
+| Highest alert-decile precision | **100%** on 32,489 alerts | Easy synthetic spikes; not independent production accuracy |
+| Review prioritization | **44.63%** fewer reviews to the same detected-positive recall | 292,285 chronological vs 161,837 ranked |
+| Critical-module test coverage | **96.34%** combined statement + branch coverage | [Coverage report](evidence/full/coverage.json) |
+| Local HTTP service | **14.55 ms median**, 100.0% correct responses | [1,500 request records](evidence/full/http_requests.csv), [environment](evidence/full/http_metrics.json) |
 
-Analytical teams often have plenty of data but still need a reliable way to answer three practical questions:
+These metrics come from the committed synthetic benchmark and local HTTP run. They do not establish historical 87% precision, 60% analyst-time savings, or a 99.5% production SLA. The original four-stock dashboard remains a separate, smaller demonstration.
 
-1. What changed?
-2. Why was it flagged?
-3. What should an analyst review next?
+## Run locally
 
-The platform supports this workflow through transparent rules and review queues. It prioritises investigation; it does not automate business decisions or claim causality.
-
-## Core workflow
-
-```text
-ingest → validate → engineer → detect → store → explain → review
-```
-
-- **Ingest:** Load public time-series data with deterministic offline fallback.
-- **Validate:** Check structure, completeness, duplicates, ranges, and freshness.
-- **Engineer:** Calculate returns, moving averages, volatility, drawdown, and comparison metrics.
-- **Detect:** Apply explainable anomaly and prioritisation rules.
-- **Store:** Persist reusable analytical outputs in CSV, SQLite, and SQL assets.
-- **Explain:** Show the metric, threshold, and rule behind each review flag.
-- **Review:** Keep final interpretation and action with the human analyst.
-
-## Key capabilities
-
-### Comparable analytics
-
-- Indexed cross-entity performance comparison
-- Moving averages and trend indicators
-- Return, volatility, and drawdown analysis
-- Transparent attention-score decomposition
-- Correlation and benchmark views
-
-### Explainable investigation
-
-- Return-anomaly, volatility-spike, and high-volume rules
-- Severity and review-priority queues
-- Supporting metrics and thresholds for each flag
-- Human follow-up questions before action
-- Clear separation between observed facts and interpretation
-
-### SQL and warehouse readiness
-
-- Read-only SQLite analytical workspace
-- Reusable SQL query templates
-- Snowflake-ready schema and analysis scripts
-- Environment-based connection configuration
-- Safe live-mode gating and explicit confirmation before uploads
-
-### Reliability and reproducibility
-
-- Data-quality checks and generated reports
-- Pipeline run metadata and file fingerprints
-- Automated tests and preflight verification
-- Deterministic synthetic datasets
-- One-command Windows demo workflow
-
-### Human-reviewed AI assistance
-
-AI tools support bounded tasks such as repository understanding, debugging, SQL drafting, documentation, and first-pass summaries.
-
-The repository records:
-
-```text
-problem → bounded prompt → AI contribution → human decision → verification → impact
-```
-
-AI suggestions are treated as proposals. The human owner reviews changes, validates outputs, protects data boundaries, and owns the final analytical or technical decision.
-
-## Synthetic GTM extension
-
-The same operating model is demonstrated with synthetic EMEA GTM concepts:
-
-- regions, accounts, and products
-- pipeline value and bookings
-- win rate and regional comparisons
-- explainable review queues
-- stakeholder-ready summaries
-- skill-gap and AI-enablement planning
-
-This extension demonstrates transferability of the workflow without implying access to any organisation's internal data or systems.
-
-## Dashboard sections
-
-1. **Overview** — business framing, data quality, decision brief, and architecture
-2. **Trends** — indexed comparisons, KPIs, risk drivers, and correlations
-3. **Investigation** — rule catalogue, severity queue, and event drill-down
-4. **SQL & Snowflake** — read-only queries, SQL assets, lineage, and readiness checks
-5. **Reliability** — quality controls, tests, run metadata, and reproducibility evidence
-6. **Operations** — synthetic service-health and incident-monitoring use cases
-7. **AI Evidence** — auditable AI-assisted tasks, controls, prompts, and decisions
-8. **GTM Studio** — synthetic regional KPIs, review queues, and adoption planning
-
-## Quick start
-
-### Windows
-
-Double-click:
-
-```text
-RUN_INTERVIEW_DEMO_WINDOWS.bat
-```
-
-The script creates or reuses a virtual environment, installs dependencies, runs the pipeline, executes verification checks, and starts Streamlit.
-
-### Manual setup
+Python 3.12:
 
 ```bash
 python -m venv .venv
-.venv\Scripts\activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-python src/main.py
-streamlit run app.py
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+python -m pytest -q --cov=src.api --cov=src.investigation --cov-branch --cov-fail-under=90
+python -m src.investigation --full --output evidence/reproduced
+EVIDENCE_DIR=evidence/reproduced uvicorn src.api:app --host 127.0.0.1 --port 8000
 ```
 
-### Verification
+Open `http://127.0.0.1:8000/docs` for interactive API documentation. In a second terminal, run `python scripts/load_test.py --output evidence/reproduced`. The committed `evidence/full` queue also works without regenerating 12M observations.
 
 ```bash
-python -m pip install -r requirements-dev.txt
-pytest
+# Original offline dashboard
+python src/main.py --offline
 python src/preflight.py
+streamlit run app.py
+
+# Container (Docker required)
+docker build -t investigation-api .
+docker run --rm -p 127.0.0.1:8000:8000 investigation-api
 ```
 
-## Optional Snowflake setup
+## Investigation flow
 
-The project works fully in local mode.
-
-To enable the optional Snowflake connector:
-
-```bash
-python -m pip install -r requirements-snowflake.txt
+```mermaid
+flowchart TD
+    A["Separate baseline window"] --> B["Median + MAD"]
+    C["New observations"] --> D["Robust deviation score"]
+    B --> D
+    D --> E["Ranked review queue"]
+    E --> F["Human decision + note"]
+    F --> G["Append-only SQLite history"]
+    H["Evaluation-only labels"] --> I["Precision + review comparison"]
+    D --> I
 ```
 
-Configure the documented `SNOWFLAKE_*` environment variables. Credentials are never stored in source code, and live actions remain disabled until the required configuration and explicit confirmation are present.
+`POST /score` accepts finite values and a baseline. `GET /alerts` returns an explainable queue without ground-truth labels. `POST /reviews` records confirmed, dismissed or needs-context decisions; `GET /reviews` preserves the history. The API is a trusted local demo: add authentication, authorization, retention controls and operational monitoring before exposing it publicly.
 
-## Repository structure
+## Existing dashboard
 
-```text
-.
-├── app.py
-├── src/
-│   ├── main.py
-│   ├── dashboard_utils.py
-│   ├── preflight.py
-│   ├── gtm_demo.py
-│   └── snowflake_adapter.py
-├── sql/
-├── docs/
-├── outputs/
-├── screenshots/
-├── tests/
-├── requirements.txt
-├── requirements-dev.txt
-└── requirements-snowflake.txt
-```
+![Original Streamlit analytics dashboard](screenshots/dashboard_overview.png)
 
-## Limitations
+The original workflow covers public market data, synthetic operations and GTM diagnostics, SQL outputs and stakeholder interpretation. [Open its full walkthrough](docs/original_dashboard_walkthrough.md). Snowflake live mode remains optional and credential-gated. No company, customer or confidential data is used.
 
-- The attention score is a transparent heuristic, not a predictive model.
-- The synthetic GTM and operations datasets do not represent real organisational performance.
-- Snowflake support is architecture- and SQL-ready; the default demonstration runs locally.
-- Anomaly detection identifies patterns requiring review but does not determine business causality.
+## Reproduction and deployment boundaries
 
-## Disclaimer
-
-This project is for educational and portfolio demonstration purposes. It is not a production trading system and does not provide financial advice.
+The [workflow](.github/workflows/api.yml) defines full-scale evaluation, a 90% critical-module coverage gate, Docker build and HTTP smoke/load checks. Docker and hosted CI were not run in this editing environment; source availability is not a deployment claim. Review data is local SQLite; mount persistent storage if needed. [Verification record](evidence/full/verification.md) lists actual checks and [AI assistance record](docs/ai_assistance_log.json) documents implementation provenance.

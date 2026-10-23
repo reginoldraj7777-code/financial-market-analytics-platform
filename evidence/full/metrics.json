@@ -1,0 +1,33 @@
+{
+  "generated_utc": "2026-10-20T13:12:27.967189+00:00",
+  "seed": 20261018,
+  "source_sha256": "29d117eb897de98e8aa05fe77f5387531a69f73e17ddbad3175fc55e6de1f942",
+  "base_commit": "d992a494781e3c1cb3dd05cc5cb92787cf6a1bf3",
+  "synthetic": true,
+  "entities": 32,
+  "observations": 12000000,
+  "additional_training_observations": 64000,
+  "input_sha256": "a83201552613029fb7dc9442f5ed7dc536635bf0b5d7b8bbb4df5d6224af8601",
+  "candidate_alerts": 324890,
+  "detector_recall": 0.9603292162737084,
+  "highest_alert_decile": {
+    "reviewed": 32489,
+    "true_positives": 32489,
+    "precision": 1.0
+  },
+  "review_simulation": {
+    "target_recall_among_detected_positives": 0.9,
+    "chronological_reviews": 292285,
+    "ranked_reviews": 161837,
+    "relative_reduction": 0.4463041209778128,
+    "assumption": "Equal cost per reviewed alert; simulated queue counts, not observed analyst time."
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "elapsed_seconds": 8.439300161000006,
+  "scope": "Stationary Gaussian synthetic data with independently sampled large injected spikes; deliberately simple benchmark, not production precision."
+}

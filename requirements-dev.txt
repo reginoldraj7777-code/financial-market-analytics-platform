@@ -1,2 +1,5 @@
 -r requirements.txt
-pytest>=8.0
+-r requirements-api.txt
+pytest>=8,<10
+pytest-cov>=6,<8
+matplotlib>=3.9,<4
