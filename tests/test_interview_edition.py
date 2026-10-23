@@ -22,11 +22,11 @@ def test_all_interview_tabs_and_assets_are_present():
         assert label in app
 
     for relative in [
-        "docs/INTERVIEW_DEMO_SCRIPT.md",
-        "docs/TECHNICAL_QA_BANK.md",
-        "docs/DEMO_RISK_CHECKLIST.md",
-        "RUN_INTERVIEW_DEMO_WINDOWS.bat",
-        "PREFLIGHT_CHECK_WINDOWS.bat",
+        "docs/demo/walkthrough.md",
+        "docs/demo/technical_questions.md",
+        "docs/demo/checklist.md",
+        "scripts/windows/RUN_INTERVIEW_DEMO_WINDOWS.bat",
+        "scripts/windows/PREFLIGHT_CHECK_WINDOWS.bat",
         ".streamlit/config.toml",
     ]:
         assert (ROOT / relative).exists(), relative

@@ -29,3 +29,7 @@ Follow the project rules: use synthetic data only, do not expose credentials, do
 - Generate tests for an approved analytics change.
 - Translate validated technical findings into stakeholder-ready language.
 - Produce onboarding notes while preserving project-specific guardrails.
+
+## Short demonstration
+
+Open the repository, confirm the project rule is active, and use the bounded prompt above. Show which source files were used, inspect the proposed diff, and run the verification checks before accepting a change. Keep credentials out of the demonstration. The AI response is not itself verification.

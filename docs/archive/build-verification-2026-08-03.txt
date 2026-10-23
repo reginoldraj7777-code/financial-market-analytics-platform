@@ -14,4 +14,4 @@ Verified on: 2026-08-03
 - Dashboard data-path execution harness: PASS
 
 Recommended Windows launch file:
-RUN_INTERVIEW_DEMO_WINDOWS.bat
+scripts/windows/RUN_INTERVIEW_DEMO_WINDOWS.bat

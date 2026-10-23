@@ -1,9 +1,9 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0..\.."
 
 if not exist ".venv\Scripts\python.exe" (
-    echo Please run RUN_DASHBOARD_WINDOWS.bat first to create the project environment.
+    echo Please run scripts/windows/RUN_DASHBOARD_WINDOWS.bat first to create the project environment.
     pause
     exit /b 1
 )

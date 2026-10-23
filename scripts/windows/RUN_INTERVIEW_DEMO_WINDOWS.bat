@@ -1,6 +1,6 @@
 @echo off
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0..\.."
 
 echo ============================================================
 echo Time-Series Analytics and AI Adoption Platform - Preflight

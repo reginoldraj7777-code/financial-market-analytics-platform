@@ -31,3 +31,10 @@ htmlcov/
 data/reviews.db
 evidence/**/*.csv.gz
 evidence/sample/
+
+# Local verification reruns
+evidence/reproduced/
+evidence/ci/
+.coverage.*
+.ruff_cache/
+data/reviews.db-*

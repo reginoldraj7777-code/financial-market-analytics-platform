@@ -1,5 +1,7 @@
 # Time-Series Investigation Platform
 
+[![CI](https://github.com/reginoldraj7777-code/financial-market-analytics-platform/actions/workflows/api.yml/badge.svg?branch=main)](https://github.com/reginoldraj7777-code/financial-market-analytics-platform/actions/workflows/api.yml) · [Documentation](docs/README.md) · [Verified CI run](docs/ci_verification.md)
+
 ### Detect unusual behavior. Explain the flag. Preserve the review decision.
 
 A Python analytics portfolio with a deterministic **12-million-observation** benchmark, an explainable FastAPI scoring service, an append-only human review log, and an existing Streamlit analytics dashboard. Public and synthetic inputs only.
@@ -67,8 +69,19 @@ flowchart TD
 
 ![Original Streamlit analytics dashboard](screenshots/dashboard_overview.png)
 
-The original workflow covers public market data, synthetic operations and GTM diagnostics, SQL outputs and stakeholder interpretation. [Open its full walkthrough](docs/original_dashboard_walkthrough.md). Snowflake live mode remains optional and credential-gated. No company, customer or confidential data is used.
+The original workflow covers public market data, synthetic operations and GTM diagnostics, SQL outputs and stakeholder interpretation. [Open the dashboard guide](docs/dashboard_guide.md). Snowflake live mode remains optional and credential-gated. No company, customer or confidential data is used.
 
 ## Reproduction and deployment boundaries
 
-The [workflow](.github/workflows/api.yml) defines full-scale evaluation, a 90% critical-module coverage gate, Docker build and HTTP smoke/load checks. Docker and hosted CI were not run in this editing environment; source availability is not a deployment claim. Review data is local SQLite; mount persistent storage if needed. [Verification record](evidence/full/verification.md) lists actual checks and [AI assistance record](docs/ai_assistance_log.json) documents implementation provenance.
+The [workflow](.github/workflows/api.yml) defines full-scale evaluation, a 90% critical-module coverage gate, Docker build and HTTP smoke/load checks. The [published CI run](docs/ci_verification.md) passed the full benchmark, coverage gate, Docker build and container HTTP checks on 23 October 2026. This verifies a containerized demo, not a live cloud deployment. Review data is local SQLite; mount persistent storage if needed. [Verification record](evidence/full/verification.md) lists actual checks and [AI assistance record](docs/ai_assistance_log.json) documents implementation provenance.
+
+## Repository guide
+
+| Location | Contents |
+|---|---|
+| `app.py and src/` | Dashboard, analytics pipeline and scoring API |
+| `scripts/` | Evaluation utilities and Windows launchers |
+| `sql/` | Optional Snowflake schema and analysis |
+| `outputs/` | Committed dashboard snapshot |
+| `evidence/full/` | Separate benchmark and HTTP records |
+| `docs/` | Current guides, demo material and historical records |

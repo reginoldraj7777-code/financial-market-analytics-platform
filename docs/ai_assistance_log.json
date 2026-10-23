@@ -30,7 +30,7 @@
       "impact": "Restored the full reporting workflow and made future installations reproducible.",
       "artifacts": [
         "requirements.txt",
-        "RUN_DASHBOARD_WINDOWS.bat",
+        "scripts/windows/RUN_DASHBOARD_WINDOWS.bat",
         "outputs/automated_summary_report.md"
       ],
       "code_before": "yfinance>=0.2.40",
@@ -126,8 +126,8 @@
         "AGENTS.md",
         "docs/CURSOR_WORKFLOW.md",
         "app.py",
-        "tests/test_redhat_edge.py",
-        "docs/CURSOR_LIVE_DEMO.md"
+        "tests/test_gtm_snowflake.py",
+        "docs/CURSOR_WORKFLOW.md"
       ]
     },
     {
@@ -164,7 +164,7 @@
         "docs/SNOWFLAKE_INTEGRATION.md",
         "outputs/synthetic_gtm_metrics.csv",
         "app.py",
-        "CHECK_SNOWFLAKE_READINESS_WINDOWS.bat"
+        "scripts/windows/CHECK_SNOWFLAKE_READINESS_WINDOWS.bat"
       ]
     },
     {
@@ -198,10 +198,10 @@
         "app.py",
         "src/dashboard_utils.py",
         "src/preflight.py",
-        "RUN_INTERVIEW_DEMO_WINDOWS.bat",
+        "scripts/windows/RUN_INTERVIEW_DEMO_WINDOWS.bat",
         "outputs/verification_summary.json",
-        "docs/INTERVIEW_DEMO_SCRIPT.md",
-        "docs/TECHNICAL_QA_BANK.md",
+        "docs/demo/walkthrough.md",
+        "docs/demo/technical_questions.md",
         "tests/test_dashboard_utils.py"
       ]
     },
@@ -211,7 +211,7 @@
       "date": "2026-10-20",
       "tool": "ChatGPT / Codex",
       "status": "Implemented; automated verification recorded; owner review pending",
-      "problem": "R\u00e9sum\u00e9-scale processing, API deployment source and metric evidence were missing.",
+      "problem": "Résumé-scale processing, API deployment source and metric evidence were missing.",
       "prompt_excerpt": "Fill gaps in the repositories and make the claims verifiable.",
       "ai_contribution": [
         "Implemented synthetic benchmark with label-separated scoring and review simulation.",
@@ -230,6 +230,31 @@
         "src/api.py",
         "tests/test_api_evidence.py",
         "evidence/full/metrics.json"
+      ]
+    },
+    {
+      "id": "AI-20261023-CLEANUP",
+      "title": "Repository navigation and documentation cleanup",
+      "date": "2026-10-23",
+      "tool": "ChatGPT / Codex",
+      "status": "Implemented; owner review pending",
+      "problem": "Duplicate guides, root-level launchers and historical notes obscured the current entry points.",
+      "prompt_excerpt": "Cleaning all three repositories is required.",
+      "ai_contribution": [
+        "Consolidated architecture and dashboard guides, grouped demo/history records and Windows launchers, and documented verified hosted CI."
+      ],
+      "human_decisions": [
+        "Repository owner requested cleanup; subsequent human review is not asserted."
+      ],
+      "verification": [
+        "Published CI evidence is linked in docs/ci_verification.md; this cleanup is checked by the repository workflows."
+      ],
+      "impact": "Clear current entry points while preserving historical records and evidence.",
+      "artifacts": [
+        "docs/README.md",
+        "docs/architecture.md",
+        "docs/dashboard_guide.md",
+        "scripts/windows/README.md"
       ]
     }
   ],

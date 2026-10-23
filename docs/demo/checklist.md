@@ -1,6 +1,6 @@
 # Interview Demo Risk Checklist
 
-- Run `PREFLIGHT_CHECK_WINDOWS.bat` the day before and again 30 minutes before the interview.
+- Run `scripts/windows/PREFLIGHT_CHECK_WINDOWS.bat` the day before and again 30 minutes before the interview.
 - Keep the dashboard open before joining the call.
 - Use browser zoom between 90% and 100%.
 - Close personal email and unrelated tabs before screen sharing.
